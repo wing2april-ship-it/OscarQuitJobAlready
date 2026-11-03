@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171208">
+<title>韓國深秋之行 · KOREA 2026 TRAVEL JOURNAL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3EDE3;
+  --paper-2:#E9DFCE;
+  --card:#FBF6EE;
+  --ink:#221B12;
+  --ink-2:#4B4136;
+  --muted:#8D8272;
+  --line:rgba(34,27,18,.14);
+  --accent:#B24A22;
+  --accent-soft:#D97B4A;
+  --moss:#6B7355;
+  --gold:#C08A2E;
+  --night:#161007;
+  --on-night:#F3EDE3;
+  --on-night-muted:rgba(243,237,227,.6);
+  --serif:'Cormorant Garamond','Noto Serif TC',Georgia,serif;
+  --zh:'Noto Serif TC','Cormorant Garamond',Georgia,serif;
+  --mono:'DM Mono','SFMono-Regular',Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--zh);
+  font-size:16px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--accent);color:var(--paper)}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+
+/* ===== 顆粒質感 ===== */
+.grain{
+  position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== 導覽列 ===== */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(243,237,227,.86);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:1220px;margin:0 auto;padding:0 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;height:60px;
+}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand .mark{
+  font-family:var(--mono);font-size:10px;letter-spacing:.32em;color:var(--accent);
+  border:1px solid var(--accent);padding:3px 8px;border-radius:2px;
+}
+.brand .name{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:.04em}
+.nav-links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  padding:8px 13px;border-radius:999px;color:var(--ink-2);white-space:nowrap;
+  transition:background .25s ease,color .25s ease,letter-spacing .3s ease;
+}
+.nav-links a:hover{background:var(--paper-2);letter-spacing:.2em}
+.nav-links a.active{background:var(--ink);color:var(--paper)}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse 70% 55% at 82% 8%, rgba(192,138,46,.24), transparent 62%),
+    radial-gradient(ellipse 55% 60% at 8% 92%, rgba(107,115,85,.28), transparent 60%),
+    var(--night);
+  color:var(--on-night);
+}
+.hero-inner{
+  max-width:1220px;margin:0 auto;padding:96px 28px 72px;position:relative;
+}
+.hero-eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.34em;color:var(--gold);
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.hero-eyebrow .rule{width:56px;height:1px;background:var(--gold);opacity:.7}
+.hero-title{
+  font-family:var(--serif);font-weight:700;line-height:.98;letter-spacing:.01em;
+  font-size:clamp(52px,9.2vw,128px);
+  margin:26px 0 8px;
+}
+.hero-title .zh{font-family:var(--zh)}
+.hero-title em{
+  font-style:italic;font-weight:400;color:var(--gold);
+  display:block;font-size:clamp(22px,3.4vw,44px);margin-top:14px;letter-spacing:.02em;
+}
+.hero-lede{
+  max-width:520px;margin-top:22px;color:var(--on-night-muted);
+  font-size:15px;line-height:1.9;
+}
+.hero-side{
+  position:absolute;top:96px;right:28px;
+  writing-mode:vertical-rl;font-family:var(--zh);font-size:13px;letter-spacing:.55em;
+  color:rgba(243,237,227,.32);border-left:1px solid rgba(243,237,227,.16);
+  padding-left:16px;height:230px;
+}
+.hero-stats{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:52px;
+  border-top:1px solid rgba(243,237,227,.14);
+}
+.stat{
+  padding:20px 34px 20px 0;margin-right:34px;
+  border-right:1px solid rgba(243,237,227,.12);
+}
+.stat:last-child{border-right:none}
+.stat b{display:block;font-family:var(--serif);font-size:36px;font-weight:600;line-height:1.1}
+.stat b i{font-size:16px;font-style:normal}
+.stat span{font-family:var(--mono);font-size:10px;letter-spacing:.26em;color:var(--on-night-muted)}
+.cd-wrap{margin-top:46px;display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap}
+.cd{display:flex;gap:10px}
+.cd-box{
+  min-width:74px;padding:12px 14px 10px;text-align:center;
+  background:rgba(243,237,227,.055);border:1px solid rgba(243,237,227,.14);border-radius:4px;
+}
+.cd-box b{display:block;font-family:var(--mono);font-size:30px;font-weight:500;line-height:1.15;color:var(--gold)}
+.cd-box span{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--on-night-muted)}
+.cd-note{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--on-night-muted);padding-bottom:6px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+  padding:15px 26px;border-radius:2px;border:1px solid transparent;
+  transition:letter-spacing .32s ease,background .3s ease,color .3s ease,border-color .3s ease;
+}
+.btn:hover{letter-spacing:.32em}
+.btn-solid{background:var(--accent-soft);color:var(--night)}
+.btn-solid:hover{background:var(--gold);color:var(--night)}
+.btn-ghost{border-color:rgba(243,237,227,.34);color:var(--on-night)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* 路線絲帶 */
+.ribbon{background:var(--night);padding:0 28px 64px;overflow:hidden}
+.ribbon-inner{max-width:1220px;margin:0 auto;position:relative}
+.ribbon svg{width:100%;height:110px;display:block}
+.route-line{
+  fill:none;stroke:var(--gold);stroke-width:1.4;stroke-dasharray:7 9;
+  animation:dash 26s linear infinite;opacity:.85;
+}
+@keyframes dash{to{stroke-dashoffset:-640}}
+.route-dot{fill:var(--accent-soft)}
+.route-label{font-family:var(--mono);font-size:11px;letter-spacing:.3em;fill:rgba(243,237,227,.75)}
+
+/* ===== 區塊通用 ===== */
+section{scroll-margin-top:72px}
+.wrap{max-width:1220px;margin:0 auto;padding:96px 28px}
+.sec-head{margin-bottom:52px;position:relative}
+.sec-kicker{display:flex;align-items:center;gap:16px}
+.sec-num{
+  font-family:var(--serif);font-size:15px;font-weight:600;font-style:italic;
+  color:var(--accent);letter-spacing:.12em;
+}
+.sec-en{font-family:var(--mono);font-size:10px;letter-spacing:.42em;color:var(--muted)}
+.sec-title{
+  font-family:var(--serif);font-weight:700;line-height:1.06;
+  font-size:clamp(34px,5.2vw,62px);margin:14px 0 12px;letter-spacing:.015em;
+}
+.sec-title .zh{font-family:var(--zh)}
+.sec-sub{max-width:600px;color:var(--ink-2);font-size:14.5px;line-height:1.95}
+.sec-rule{width:100%;height:1px;background:var(--line);margin-top:34px;position:relative;overflow:hidden}
+.sec-rule::after{
+  content:'';position:absolute;inset:0;width:0;background:var(--accent);
+  transition:width 1.4s cubic-bezier(.22,1,.36,1);
+}
+.sec-rule.in::after{width:120px}
+
+/* 進場動畫 */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== 行程區 ===== */
+.day-bar{
+  display:flex;gap:8px;overflow-x:auto;padding-bottom:14px;margin-bottom:30px;
+  scrollbar-width:none;
+}
+.day-bar::-webkit-scrollbar{display:none}
+.day-chip{
+  flex:0 0 auto;display:flex;flex-direction:column;gap:2px;align-items:flex-start;
+  padding:11px 20px 10px;border:1px solid var(--line);border-radius:3px;
+  background:var(--card);transition:all .3s ease;min-width:124px;
+}
+.day-chip b{font-family:var(--serif);font-size:17px;font-weight:600;letter-spacing:.03em}
+.day-chip span{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;color:var(--muted)}
+.day-chip:hover{border-color:var(--accent);transform:translateY(-2px)}
+.day-chip.active{background:var(--ink);border-color:var(--ink)}
+.day-chip.active b{color:var(--paper)}
+.day-chip.active span{color:var(--gold)}
+
+.day-panel{display:grid;grid-template-columns:1.9fr 1fr;gap:44px;align-items:start}
+.fade-swap{animation:swapIn .55s cubic-bezier(.22,1,.36,1)}
+@keyframes swapIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.day-hero{
+  position:relative;background:var(--ink);color:var(--on-night);
+  padding:38px 36px 34px;border-radius:4px;overflow:hidden;margin-bottom:30px;
+}
+.day-hero::after{
+  content:attr(data-num);position:absolute;right:-8px;bottom:-46px;
+  font-family:var(--serif);font-size:190px;font-weight:700;line-height:1;
+  color:rgba(243,237,227,.07);pointer-events:none;
+}
+.day-hero .zone{font-family:var(--mono);font-size:10px;letter-spacing:.32em;color:var(--gold)}
+.day-hero h3{font-family:var(--serif);font-size:31px;font-weight:600;margin:10px 0 14px;letter-spacing:.02em}
+.day-hero p{color:var(--on-night-muted);font-size:13.5px;line-height:1.95;max-width:540px}
+
+.tl{display:flex;flex-direction:column;gap:0;position:relative}
+.tl::before{
+  content:'';position:absolute;left:82px;top:14px;bottom:14px;width:1px;
+  background:linear-gradient(var(--line),var(--accent) 55%,var(--line));
+}
+.tl-item{
+  display:grid;grid-template-columns:82px 1fr;gap:30px;
+  padding:16px 0;position:relative;
+}
+.tl-time{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--accent);
+  text-align:right;padding-top:3px;line-height:1.55;font-weight:500;
+}
+.tl-time i{display:block;font-style:normal;font-size:9.5px;letter-spacing:.24em;color:var(--muted)}
+.tl-body{
+  position:relative;padding:2px 46px 2px 24px;
+  border-radius:3px;transition:background .3s ease,transform .35s ease;
+}
+.tl-body:hover{background:var(--card);transform:translateX(5px)}
+.tl-body::before{
+  content:'';position:absolute;left:-25px;top:9px;width:9px;height:9px;border-radius:50%;
+  background:var(--paper);border:1.6px solid var(--accent);
+}
+.tl-item.done .tl-body::before{background:var(--accent)}
+.tl-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tl-top h4{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:.02em;line-height:1.3}
+.tag{
+  font-family:var(--mono);font-size:9px;letter-spacing:.24em;color:var(--moss);
+  border:1px solid rgba(107,115,85,.4);padding:2.5px 9px;border-radius:999px;
+}
+.tag.food{color:var(--accent);border-color:rgba(178,74,34,.4)}
+.tag.shop{color:var(--gold);border-color:rgba(192,138,46,.45)}
+.tl-desc{font-size:13.5px;color:var(--ink-2);line-height:1.92;margin-top:7px;max-width:580px}
+.tl-item.done h4{text-decoration:line-through;color:var(--muted)}
+.tl-item.done .tl-desc{opacity:.55}
+.check-btn{
+  position:absolute;top:4px;right:2px;width:30px;height:30px;border-radius:50%;
+  border:1.2px solid var(--line);display:flex;align-items:center;justify-content:center;
+  transition:all .28s ease;color:transparent;
+}
+.check-btn:hover{border-color:var(--accent);color:rgba(178,74,34,.35)}
+.check-btn.on{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+
+.side-card{
+  background:var(--card);border:1px solid var(--line);border-radius:4px;
+  padding:26px 26px 24px;margin-bottom:18px;
+}
+.side-card h4{
+  font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.03em;
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.side-card h4 .ic{
+  width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;flex:0 0 auto;
+}
+.side-card p,.side-card li{font-size:13px;line-height:1.95;color:var(--ink-2)}
+.side-card ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.side-card li{padding-left:18px;position:relative}
+.side-card li::before{content:'—';position:absolute;left:0;color:var(--accent);font-family:var(--mono)}
+.kv{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13px}
+.kv:last-child{border-bottom:none}
+.kv b{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink);white-space:nowrap}
+.kv span{color:var(--ink-2);text-align:right}
+
+/* 地圖 */
+.map-panel{
+  margin-top:44px;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--card);
+}
+.map-head{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  padding:16px 22px;border-bottom:1px solid var(--line);
+}
+.map-head h4{font-family:var(--serif);font-size:19px;font-weight:600}
+.map-head .btn-mini{
+  font-family:var(--mono);font-size:10px;letter-spacing:.22em;padding:9px 18px;
+  border:1px solid var(--ink);border-radius:2px;transition:all .3s ease;
+}
+.map-head .btn-mini:hover{background:var(--ink);color:var(--paper);letter-spacing:.3em}
+.map-frame{width:100%;height:420px;border:0;display:block;background:var(--paper-2)}
+
+/* ===== 自駕（夜色區塊） ===== */
+.night-sec{
+  background:
+    radial-gradient(ellipse 60% 50% at 88% 0%, rgba(192,138,46,.16), transparent 60%),
+    var(--night);
+  color:var(--on-night);
+}
+.night-sec .sec-en{color:var(--on-night-muted)}
+.night-sec .sec-sub{color:var(--on-night-muted)}
+.night-sec .sec-rule{background:rgba(243,237,227,.14)}
+.road-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.road-card{
+  border:1px solid rgba(243,237,227,.14);border-radius:4px;padding:28px 28px 24px;
+  background:rgba(243,237,227,.04);transition:transform .4s ease,border-color .4s ease,background .4s ease;
+}
+.road-card:hover{transform:translateY(-5px);border-color:var(--gold);background:rgba(243,237,227,.07)}
+.road-no{
+  font-family:var(--mono);font-size:34px;font-weight:500;color:var(--gold);letter-spacing:.04em;line-height:1;
+}
+.road-card h4{font-family:var(--serif);font-size:23px;font-weight:600;margin:14px 0 10px;letter-spacing:.02em}
+.road-card p{color:var(--on-night-muted);font-size:13px;line-height:1.95}
+.road-tag{
+  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:9.5px;letter-spacing:.26em;
+  padding:5px 12px;border-radius:999px;border:1px solid rgba(217,123,74,.5);color:var(--accent-soft);
+}
+.warn-band{
+  margin-top:28px;display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:20px;
+}
+.warn-card{
+  border-left:2px solid var(--accent-soft);padding:6px 0 6px 20px;
+}
+.warn-card h5{font-family:var(--mono);font-size:10.5px;letter-spacing:.28em;color:var(--accent-soft);margin-bottom:9px}
+.warn-card p{font-size:13px;line-height:1.95;color:var(--on-night-muted)}
+
+/* ===== 酒店 ===== */
+.hotel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.hotel-card{
+  background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s ease;
+}
+.hotel-card:hover{transform:translateY(-8px);box-shadow:0 26px 50px -28px rgba(34,27,18,.35)}
+.hotel-top{
+  padding:26px 26px 20px;background:linear-gradient(160deg,var(--paper-2),transparent 70%);
+}
+.hotel-city{font-family:var(--mono);font-size:9.5px;letter-spacing:.32em;color:var(--accent)}
+.hotel-card h4{font-family:var(--serif);font-size:25px;font-weight:600;margin:9px 0 4px;letter-spacing:.02em}
+.hotel-card .alt{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--muted)}
+.hotel-body{padding:6px 26px 26px;display:flex;flex-direction:column;gap:12px;flex:1}
+.hotel-body p{font-size:13px;line-height:1.95;color:var(--ink-2)}
+.pill-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:14px}
+.pill{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--moss);
+  border:1px solid rgba(107,115,85,.35);padding:4.5px 11px;border-radius:999px;
+}
+
+/* ===== 穿搭 ===== */
+.quote{
+  font-family:var(--serif);font-style:italic;font-size:clamp(24px,3.6vw,42px);
+  line-height:1.35;max-width:760px;margin:8px 0 48px;color:var(--ink);
+}
+.quote .hl{color:var(--accent)}
+.wx-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:44px}
+.wx-card{
+  border:1px solid var(--line);border-radius:4px;padding:30px 30px 26px;position:relative;overflow:hidden;
+}
+.wx-card.jeju{background:linear-gradient(150deg,#EDE6D6,transparent 65%),var(--card)}
+.wx-card.seoul{background:linear-gradient(150deg,#E4E2D8,transparent 65%),var(--card)}
+.wx-temp{font-family:var(--serif);font-size:52px;font-weight:600;line-height:1;letter-spacing:.01em}
+.wx-temp small{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--muted);display:block;margin-top:8px}
+.wx-card h4{font-family:var(--serif);font-size:22px;font-weight:600;margin:18px 0 10px}
+.wx-card p{font-size:13px;line-height:1.95;color:var(--ink-2)}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:52px}
+.fit-card{border:1px solid var(--line);border-radius:4px;padding:30px;background:var(--card)}
+.fit-card h4{
+  font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:6px;
+  display:flex;align-items:center;gap:12px;
+}
+.fit-card h4 .who{
+  font-family:var(--mono);font-size:9px;letter-spacing:.3em;padding:4px 10px;border-radius:999px;
+  background:var(--ink);color:var(--paper);
+}
+.fit-card .layer{
+  display:flex;gap:14px;padding:13px 0;border-bottom:1px dashed var(--line);
+}
+.fit-card .layer:last-of-type{border-bottom:none}
+.fit-card .layer b{
+  font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--accent);
+  min-width:52px;padding-top:3px;
+}
+.fit-card .layer p{font-size:13px;line-height:1.9;color:var(--ink-2)}
+
+/* 打包清單 */
+.pack-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.pack-progress{flex:1;min-width:240px}
+.bar{height:5px;background:var(--paper-2);border-radius:999px;overflow:hidden;margin-top:10px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--gold));transition:width .6s cubic-bezier(.22,1,.36,1)}
+.pack-stat{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--muted)}
+.pack-stat b{color:var(--accent);font-size:15px}
+.pack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pack-col{border:1px solid var(--line);border-radius:4px;background:var(--card);padding:22px 20px}
+.pack-col h5{
+  font-family:var(--mono);font-size:10px;letter-spacing:.28em;color:var(--accent);
+  padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid var(--line);
+}
+.pack-item{
+  display:flex;align-items:flex-start;gap:11px;padding:8px 0;font-size:12.5px;
+  line-height:1.7;color:var(--ink-2);cursor:pointer;transition:color .25s ease;
+}
+.pack-item:hover{color:var(--ink)}
+.pack-\boxed{
+  flex:0 0 auto;width:17px;height:17px;border:1.3px solid var(--line);border-radius:3px;
+  margin-top:3px;display:flex;align-items:center;justify-content:center;
+  color:transparent;font-family:var(--mono);font-size:10px;transition:all .25s ease;
+}
+.pack-item.on .pack-\boxed{background:var(--moss);border-color:var(--moss);color:var(--paper)}
+.pack-item.on span{text-decoration:line-through;color:var(--muted)}
+
+/* ===== 食買 & 時間表 ===== */
+.table-wrap{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--card);margin-bottom:52px}
+table{width:100%;border-collapse:collapse}
+thead th{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.28em;color:var(--paper);
+  background:var(--ink);text-align:left;padding:15px 20px;font-weight:500;
+}
+tbody td{padding:15px 20px;font-size:13px;border-bottom:1px solid var(--line);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr{transition:background .25s ease}
+tbody tr:hover{background:var(--paper-2)}
+td.place{font-family:var(--serif);font-size:17px;font-weight:600;letter-spacing:.02em}
+td.hours{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--accent);white-space:nowrap}
+td.note{color:var(--ink-2);font-size:12.5px;line-height:1.85}
+td.note b{color:var(--accent)}
+
+.food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.food-col h4{
+  font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:.02em;
+  display:flex;align-items:baseline;gap:12px;margin-bottom:6px;
+}
+.food-col h4 small{font-family:var(--mono);font-size:9.5px;letter-spacing:.3em;color:var(--accent)}
+.food-col>.sub{font-size:12.5px;color:var(--muted);margin-bottom:18px;line-height:1.85}
+.food-item{
+  border-top:1px solid var(--line);padding:15px 0 13px;
+  transition:padding-left .3s ease;cursor:default;
+}
+.food-item:hover{padding-left:10px}
+.food-item b{font-family:var(--serif);font-size:17px;font-weight:600;display:block;letter-spacing:.02em}
+.food-item span{font-size:12px;color:var(--ink-2);line-height:1.85;display:block;margin-top:4px}
+.food-item .where{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;color:var(--gold);display:block;margin-top:6px}
+
+/* ===== 錦囊 ===== */
+.tip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.tip-card{border:1px solid var(--line);border-radius:4px;background:var(--card);padding:30px}
+.tip-card h4{font-family:var(--serif);font-size:23px;font-weight:600;margin-bottom:16px;letter-spacing:.02em}
+.tip-card h4 small{font-family:var(--mono);font-size:9.5px;letter-spacing:.3em;color:var(--accent);display:block;margin-bottom:6px}
+.sos{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:6px;
+}
+.sos a,.sos div{
+  border:1px solid var(--line);border-radius:3px;padding:14px 10px;text-align:center;
+  transition:all .3s ease;background:var(--paper);
+}
+.sos b{display:block;font-family:var(--mono);font-size:21px;color:var(--accent);letter-spacing:.06em}
+.sos span{font-family:var(--mono);font-size:8.5px;letter-spacing:.24em;color:var(--muted)}
+.sos a:hover{border-color:var(--accent);transform:translateY(-3px)}
+.pre-list{display:flex;flex-direction:column;gap:0}
+.pre-item{
+  display:flex;align-items:center;gap:13px;padding:12px 0;border-bottom:1px dashed var(--line);
+  font-size:13px;line-height:1.8;color:var(--ink-2);cursor:pointer;
+}
+.pre-item:last-child{border-bottom:none}
+.pre-item .pack-\boxed{margin-top:0}
+.pre-item.on span{text-decoration:line-through;color:var(--muted)}
+
+/* ===== Footer ===== */
+footer{
+  background:var(--night);color:var(--on-night);
+  padding:80px 28px 40px;position:relative;overflow:hidden;
+}
+footer::before{
+  content:'다음 여행';position:absolute;right:-20px;bottom:-30px;
+  font-family:var(--serif);font-size:150px;font-weight:700;color:rgba(243,237,227,.05);
+  letter-spacing:.04em;pointer-events:none;
+}
+.foot-inner{max-width:1220px;margin:0 auto}
+.foot-title{font-family:var(--serif);font-size:clamp(28px,4.4vw,50px);font-weight:700;line-height:1.15;max-width:640px}
+.foot-title em{font-style:italic;color:var(--gold);font-weight:400}
+.foot-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:44px 0}
+.foot-step{border-top:1px solid rgba(243,237,227,.18);padding-top:18px}
+.foot-step b{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--gold)}
+.foot-step p{font-size:13px;line-height:1.95;color:var(--on-night-muted);margin-top:9px}
+.foot-meta{
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+  border-top:1px solid rgba(243,237,227,.14);padding-top:22px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.26em;color:var(--on-night-muted);
+}
+
+/* ===== 響應式 ===== */
+@media (max-width:980px){
+  .day-panel{grid-template-columns:1fr;gap:34px}
+  .hotel-grid,.food-grid,.pack-grid{grid-template-columns:1fr 1fr}
+  .warn-band{grid-template-columns:1fr}
+  .hero-side{display:none}
+}
+@media (max-width:720px){
+  .wrap{padding:68px 20px}
+  .hero-inner{padding:64px 20px 52px}
+  .topbar-inner{padding:0 20px}
+  .brand .name{display:none}
+  .road-grid,.wx-grid,.fit-grid,.tip-grid,.hotel-grid,.food-grid,.pack-grid,.foot-steps{grid-template-columns:1fr}
+  .tl::before{left:0}
+  .tl-item{grid-template-columns:1fr;gap:8px;padding:18px 0 18px 22px}
+  .tl-time{text-align:left;display:flex;gap:10px;align-items:baseline}
+  .tl-time i{display:inline}
+  .tl-body{padding:2px 40px 2px 0}
+  .tl-body::before{left:-22px;top:8px}
+  .stat{padding-right:22px;margin-right:22px}
+  .stat b{font-size:28px}
+  .sos{grid-template-columns:1fr 1fr}
+  td.place{font-size:15px}
+  thead th,tbody td{padding:12px 13px}
+  .table-wrap{overflow-x:auto}
+  table{min-width:600px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- 導覽列 -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="mark">2026</span>
+      <span class="name">深秋韓國旅誌</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#itinerary">行程</a>
+      <a href="#drive">自駕</a>
+      <a href="#stay">酒店</a>
+      <a href="#style">穿搭</a>
+      <a href="#taste">食買</a>
+      <a href="#notes">錦囊</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-side">韓國 · 濟州 · 大田 · 首爾 · 深秋</div>
+    <div class="hero-eyebrow reveal">
+      <span class="rule"></span>
+      <span>JEJU · CHEONGJU · DAEJEON · SEOUL</span>
+      <span>2026.11.07 — 11.15</span>
+    </div>
+    <h1 class="hero-title reveal">
+      <span class="zh">深秋，<br>從濟州到首爾</span>
+      <em>Nine days of silver grass, bakeries &amp; city lights.</em>
+    </h1>
+    <p class="hero-lede reveal">
+      一份為兩個人寫嘅深秋旅行手帖 —— 濟州自駕環島追落日、9 號晚收車；
+      10 號朝早搭 LJ748 飛清州轉 KTX，大田半日快閃聖心堂；
+      再上首爾行街、醫美，最後帶住滿滿回憶返香港。
+    </p>
+
+    <div class="hero-stats reveal">
+      <div class="stat"><b>09</b><span>DAYS</span></div>
+      <div class="stat"><b>04</b><span>STOPS</span></div>
+      <div class="stat"><b>320<i>km</i></b><span>SELF-DRIVE · DAY 1-3</span></div>
+      <div class="stat"><b>02</b><span>TRAVELERS</span></div>
+    </div>
+
+    <div class="cd-wrap reveal">
+      <div class="cd">
+        <div class="cd-box"><b id="cdD">--</b><span>DAYS</span></div>
+        <div class="cd-box"><b id="cdH">--</b><span>HRS</span></div>
+        <div class="cd-box"><b id="cdM">--</b><span>MIN</span></div>
+        <div class="cd-box"><b id="cdS">--</b><span>SEC</span></div>
+      </div>
+      <div class="cd-note">距離出發 · 07 NOV 06:10 抵達濟州</div>
+    </div>
+
+    <div class="hero-actions reveal">
+      <a class="btn btn-solid" href="#itinerary">查看逐日行程</a>
+      <button class="btn btn-ghost" id="mapToggleTop">展開 My Map 地圖</button>
+    </div>
+  </div>
+
+  <!-- 路線絲帶 -->
+  <div class="ribbon">
+    <div class="ribbon-inner">
+      <svg viewBox="0 0 1200 110" preserveAspectRatio="none" aria-hidden="true">
+        <path class="route-line" d="M60 82 C 200 34, 320 88, 430 72 S 620 26, 780 48 S 1030 18, 1140 66"/>
+        <circle class="route-dot" cx="60" cy="82" r="5"/>
+        <circle class="route-dot" cx="430" cy="72" r="5"/>
+        <circle class="route-dot" cx="780" cy="48" r="5"/>
+        <circle class="route-dot" cx="1140" cy="66" r="5"/>
+        <text class="route-label" x="42" y="106">JEJU</text>
+        <text class="route-label" x="330" y="102">CHEONGJU</text>
+        <text class="route-label" x="716" y="32">DAEJEON</text>
+        <text class="route-label" x="1076" y="96">SEOUL</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- 01 行程 -->
+<section id="itinerary">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker"><span class="sec-num">01</span><span class="sec-en">DAY BY DAY</span></div>
+      <h2 class="sec-title"><span class="zh">逐日行程時間軸</span></h2>
+      <p class="sec-sub">每一個時段都為「趕得切落日、咬得實航班」而設。點擊右上角圓圈打卡，進度自動儲存喺你部機 —— 離線重開都唔會消失。</p>
+      <div class="sec-rule"></div>
+    </div>
+
+    <div class="day-bar reveal" id="dayBar"></div>
+
+    <div class="day-panel">
+      <div>
+        <div class="day-hero reveal" id="dayHero" data-num="01">
+          <div class="zone" id="dayZone"></div>
+          <h3 id="dayTitle"></h3>
+          <p id="dayHighlight"></p>
+        </div>
+        <div class="tl" id="timeline"></div>
+      </div>
+
+      <aside>
+        <div class="side-card reveal">
+          <h4><span class="ic">A</span>交通紀錄</h4>
+          <div class="kv"><b>DAY 1</b><span>97號公路 ➔ 1119號公路</span></div>
+          <div class="kv"><b>DAY 1</b><span>1132 環島公路東南段</span></div>
+          <div class="kv"><b>DAY 2</b><span>1135 平和路 + 的士上 1100 高地</span></div>
+          <div class="kv"><b>DAY 3</b><span>中北部 97 / 1112 幹道</span></div>
+          <div class="kv"><b>DAY 3 晚</b><span>20:30 還車（9號晚收車）</span></div>
+          <div class="kv"><b>DAY 4</b><span>LJ748 ✈ + BUS/TAXI + KTX</span></div>
+          <div class="kv"><b>DAY 5+</b><span>首爾地鐵 / KTX / ITX</span></div>
+        </div>
+        <div class="side-card reveal">
+          <h4><span class="ic">!</span>關鍵時限</h4>
+          <ul>
+            <li><b>LJ748 10:05 起飛</b> —— 08:45 前到濟州機場櫃台。</li>
+            <li>牛島渡輪尾班 16:30，15:15 返程極安全。</li>
+            <li>老衡超市 18:00 最後入場 —— 17:55 必須壓線到。</li>
+            <li>山君不離 17:00 停止售票，15:30 抵達完美。</li>
+            <li>EXPO 科學公園 17:40 收館（11/10 星期二開放）。</li>
+            <li>大田 KTX 18:35 上車，<b>23:00 前</b> check in 穩陣。</li>
+          </ul>
+        </div>
+        <div class="side-card reveal">
+          <h4><span class="ic">T</span>轉乘小技巧</h4>
+          <p>清州機場細、人少，落機 20 分鐘搞掂。五松站（오송역）離機場最近，機場巴士或的士約 30-40 分鐘。大田站用 Korail 儲物櫃寄存行李，輕裝行一個下午再上 KTX。</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- My Map -->
+    <div class="map-panel reveal" id="mapPanel">
+      <div class="map-head">
+        <h4>濟州自駕 My Map · Google 地圖</h4>
+        <button class="btn-mini" id="mapToggle">收起 / 展開</button>
+      </div>
+      <iframe class="map-frame" id="mapFrame"
+        src="https://www.google.com/maps/d/u/1/embed?mid=1lpnRmCggV4Nunuap-EteYW17bZG32sk&ehbc=2E312F"
+        loading="lazy" allowfullscreen title="Jeju My Map"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- 02 自駕 -->
+<section id="drive" class="night-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker"><span class="sec-num">02</span><span class="sec-en">SAFE DRIVING</span></div>
+      <h2 class="sec-title" style="color:var(--on-night)"><span class="zh">新手自駕保命路線</span></h2>
+      <p class="sec-sub">自駕只限 11/7 至 11/9 三日。濟州島中間係漢拏山，新手切忌橫越 1131（5.16道路）同 1139（1100道路）山路 —— 彎急、多霧、長斜路。以下路線全部繞開。</p>
+      <div class="sec-rule"></div>
+    </div>
+
+    <div class="road-grid">
+      <div class="road-card reveal">
+        <div class="road-no">R-97 → 1119</div>
+        <h4>機場 ➔ 城山日出峰</h4>
+        <p>行 97 號公路（繁榮路）接 1119 號公路，全濟州最好行嘅幹道之一。雙向多線、路直平坦，避開沿海細路嘅大量減速帶。</p>
+        <span class="road-tag">DAY 1 · 上午</span>
+      </div>
+      <div class="road-card reveal">
+        <div class="road-no">R-1132</div>
+        <h4>城山 ➔ 表善 ➔ 南原 ➔ 西歸浦</h4>
+        <p>環島公路東南段，全程極少急彎、路面闊、車流順暢。沿岸多個觀景位，趕落日途中都可以隨時停一停。</p>
+        <span class="road-tag">DAY 1 · 下午</span>
+      </div>
+      <div class="road-card reveal">
+        <div class="road-no">R-1135</div>
+        <h4>ICC ➔ 晨星岳 ➔ 老衡 ➔ 濟州市區</h4>
+        <p>平和路係濟州西部嘅「高速公路」，限速 80km/h，直路多、路牌清晰。去晨星岳落日同超市壓線都靠佢。</p>
+        <span class="road-tag">DAY 2 · 下午</span>
+      </div>
+      <div class="road-card reveal">
+        <div class="road-no">TAXI · KTX</div>
+        <h4>1100 高地搭的士 · 9號晚還車</h4>
+        <p>由 ICC 轉乘的士上高地，避開自駕山路。11 月 9 號晚 20:30 喺機場 24h 分店或市區分店交車，之後全程鐵路 + 的士，慳返晒精神。</p>
+        <span class="road-tag">DAY 2 + DAY 3 晚</span>
+      </div>
+    </div>
+
+    <div class="warn-band">
+      <div class="warn-card reveal">
+        <h5>限速與相機</h5>
+        <p>市區默認 50km/h、小路 30km/h、1135 平和路 80km/h。相機極多，見標誌即減速；環島公路切勿超速追時間。</p>
+      </div>
+      <div class="warn-card reveal">
+        <h5>取車與還車</h5>
+        <p>取車時影低全車傷痕。還車前入滿油、執走所有行李同垃圾，影相留底，確認按金退還安排。還車後搭的士 10 分鐘返酒店。</p>
+      </div>
+      <div class="warn-card reveal">
+        <h5>絕對紅線</h5>
+        <p>唔好夜行山路、唔好霧天上 1100 道路、唔好疲勞駕駛追行程。凍天日落快，17:00 後盡量留喺市區。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 酒店 -->
+<section id="stay">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker"><span class="sec-num">03</span><span class="sec-en">WHERE TO STAY</span></div>
+      <h2 class="sec-title"><span class="zh">酒店精準推薦</span></h2>
+      <p class="sec-sub">三個住宿點全部符合「大床房 + 極度乾淨 + 好泊車 + 生活機能強」，位置經過行程動線反覆推敲。</p>
+      <div class="sec-rule"></div>
+    </div>
+
+    <div class="hotel-grid">
+      <div class="hotel-card reveal">
+        <div class="hotel-top">
+          <div class="hotel-city">SEOGWIPO · DAY 1</div>
+          <h4>Heyy Seogwipo</h4>
+          <div class="alt">西歸浦黑伊酒店 / HOTEL BRIDGE</div>
+        </div>
+        <div class="hotel-body">
+          <p>乾淨簡約北歐風，開揚海景大床房。行去每日偶來市場只要 7-10 分鐘，宵夜補給零壓力。樓下泊車場闊落，新手泊車完全無難度。</p>
+          <div class="pill-row">
+            <span class="pill">海景大床房</span><span class="pill">免費泊車</span><span class="pill">近偶來市場</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal">
+        <div class="hotel-top">
+          <div class="hotel-city">JEJU CITY · DAY 2-3</div>
+          <h4>Shilla Stay Jeju</h4>
+          <div class="alt">新羅舒泰 / GLOUCESTER HOTEL</div>
+        </div>
+        <div class="hotel-body">
+          <p>三星旗下質素保證，床品乾淨度一流。位於連洞（新濟州），生活機能極強。<b>9 號晚喺機場分店還車後搭的士 10 分鐘返到酒店</b>，聽朝早出發機場一樣係 10 分鐘車程。</p>
+          <div class="pill-row">
+            <span class="pill">立體停車場</span><span class="pill">近東門市場</span><span class="pill">機場10分鐘</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal">
+        <div class="hotel-top">
+          <div class="hotel-city">SEOUL · DAY 4-9</div>
+          <h4>Ryse, Autograph</h4>
+          <div class="alt">傲途格精選 / L7 HONGDAE</div>
+        </div>
+        <div class="hotel-body">
+          <p>設計感天花板！大床房空間闊落，落地玻璃採光極靚。樓下就係弘大最潮街區，返機場一程 AREX 直達唔使搬行李轉車。</p>
+          <div class="pill-row">
+            <span class="pill">設計酒店</span><span class="pill">AREX直達</span><span class="pill">弘大夜生活</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 穿搭 -->
+<section id="style">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker"><span class="sec-num">04</span><span class="sec-en">AUTUMN WARDROBE</span></div>
+      <h2 class="sec-title"><span class="zh">深秋穿搭美學</span></h2>
+      <div class="sec-rule"></div>
+    </div>
+
+    <p class="quote reveal">「洋蔥式穿搭」—— 一件厚毛衣係旅行大忌，<span class="hl">發熱衣 + 襯衫 + 防風外層</span>先係影靚相嘅答案。</p>
+
+    <div class="wx-grid">
+      <div class="wx-card jeju reveal">
+        <div class="wx-temp">10°–17°<small>JEJU · 濟州島</small></div>
+        <h4>海風係主角</h4>
+        <p>牛島、城山、南原海邊同晨星岳、山君不離山腳芒草區風勢極大，體感再低 3-4°C。防風連帽外套必帶，長髮記得多備髮夾。</p>
+      </div>
+      <div class="wx-card seoul reveal">
+        <div class="wx-temp">3°–12°<small>SEOUL / DAEJEON · 首爾 · 大田</small></div>
+        <h4>早晚溫差超大</h4>
+        <p>早上出門同日落後係兩個世界。室外暖笠笠、室內暖氣充足 —— 穿脫方便嘅層次最重要。大田同首爾差不多，春川山谷更凍，加一條頸巾。</p>
+      </div>
+    </div>
+
+    <div class="fit-grid">
+      <div class="fit-card reveal">
+        <h4>男士造型 <span class="who">MEN</span></h4>
+        <div class="layer"><b>OUTER</b><p>防風連帽風褸（Arc'teryx / Descente 風格剪裁），炭灰或深軍綠最上鏡。</p></div>
+        <div class="layer"><b>INNER</b><p>發熱衣 + 素色 Hoodie 或牛津紡襯衫，大地色系營造層次。</p></div>
+        <div class="layer"><b>BOTTOM</b><p>寬版打褶西褲或工裝長褲，行山不束縛、影相有線條。</p></div>
+        <div class="layer"><b>SHOES</b><p>Salomon / New Balance 1906R —— 行晨星岳、山君不離防跣舒適。</p></div>
+      </div>
+      <div class="fit-card reveal">
+        <h4>女士造型 <span class="who">WOMEN</span></h4>
+        <div class="layer"><b>OUTER</b><p>燕麥色／深啡色羊毛長大褸，或者短版羽絨配長裙，兩套都影得芒草海好靚。</p></div>
+        <div class="layer"><b>INNER</b><p>修身高領發熱衣 + 直筒長褲；室內脫褸後依然係完整造型。</p></div>
+        <div class="layer"><b>ACC</b><p>蓬鬆毛線帽（Beanie）或格紋大圍巾 —— 晨星岳防吹亂頭髮，打卡一流。</p></div>
+        <div class="layer"><b>SHOES</b><p>厚底皮質 Chelsea boots 或復古球鞋，兼顧保暖同上鏡。</p></div>
+      </div>
+    </div>
+
+    <div class="pack-head reveal">
+      <div>
+        <div class="sec-kicker"><span class="sec-num">04·B</span><span class="sec-en">PACKING LIST</span></div>
+        <h3 style="font-family:var(--serif);font-size:30px;font-weight:600;margin-top:8px">雙人行李 CheckList</h3>
+      </div>
+      <div class="pack-progress">
+        <div class="pack-stat"><b id="packPct">0%</b>　已打包 <span id="packCount">0 / 0</span> 項</div>
+        <div class="bar"><i id="packBar"></i></div>
+      </div>
+    </div>
+    <div class="pack-grid" id="packGrid"></div>
+  </div>
+</section>
+
+<!-- 05 食買 -->
+<section id="taste">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker"><span class="sec-num">05</span><span class="sec-en">EAT · SHOP · HOURS</span></div>
+      <h2 class="sec-title"><span class="zh">食買清單與開放時間</span></h2>
+      <p class="sec-sub">唔行傳統遊客路線。以下係 2026 本地人氣之選，連埋每個景點嘅實用開放時段，方便你反推每日出發時間。</p>
+      <div class="sec-rule"></div>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr><th>景點 / 場地</th><th>開放時間</th><th>實用備註</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="place">城山日出峰</td><td class="hours">07:00 – 19:00</td><td class="note">18:00 停止售票。09:50 抵達光線最溫柔。</td></tr>
+          <tr><td class="place">牛島渡輪（城山港）</td><td class="hours">尾班 16:30 – 17:00</td><td class="note">11 月航班較疏，<b>15:15 返程極之安全</b>。</td></tr>
+          <tr><td class="place">休愛里自然生活公園</td><td class="hours">09:00 – 17:30</td><td class="note">16:30 最後入場，山茶花與粉紅亂子草正當季。</td></tr>
+          <tr><td class="place">老衡超級市場</td><td class="hours">09:00 – 19:00</td><td class="note">18:00 最後入場，<b>17:55 必須壓線到達</b>。</td></tr>
+          <tr><td class="place">Ecoland 生態樂園</td><td class="hours">08:30 – 17:30</td><td class="note">復古蒸汽小火車，早到人少好影。</td></tr>
+          <tr><td class="place">石頭文化公園</td><td class="hours">09:00 – 18:00</td><td class="note">17:00 最後入場，「天空之池」倒影要天晴先靚。</td></tr>
+          <tr><td class="place">山君不離</td><td class="hours">09:00 – 17:40</td><td class="note">17:00 停止售票，<b>15:30 抵達完美避開限制</b>睇落日。</td></tr>
+          <tr><td class="place">聖心堂 성심당 本店（大田）</td><td class="hours">08:00 – 22:00</td><td class="note">全年無休；炸菠蘿包（튀김소보로）出爐時間不定，晏晝人較少。</td></tr>
+          <tr><td class="place">大田中央市場</td><td class="hours">約 09:00 – 18:00</td><td class="note">同聖心堂本店同一區（은행동），刀削麵、豬腳食晏晝最穩陣。</td></tr>
+          <tr><td class="place">EXPO 科學公園（大田）</td><td class="hours">09:30 – 17:40</td><td class="note"><b>逢星期一休園</b> —— 11/10 係星期二，正常開放。17:40 收館要預鬆啲。</td></tr>
+          <tr><td class="place">慶周山紅土步道 계족산 황톳길</td><td class="hours">全日開放</td><td class="note">全國最長 4.5km 赤腳紅泥路 + 山頂展望台，建議 17:30 前完成。</td></tr>
+          <tr><td class="place">裕泉溫泉足湯（유성온천）</td><td class="hours">07:00 – 22:00</td><td class="note">100% 天然溫泉 39-42°C，<b>完全免費</b>，全年無休。</td></tr>
+          <tr><td class="place">西歸浦天文科學館</td><td class="hours">19:00 – 22:00</td><td class="note">天象儀需留意場次，建議到埗先買飛。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="food-grid">
+      <div class="food-col reveal">
+        <h4><small>JEJU</small>濟州在地滋味</h4>
+        <p class="sub">市場風、海產、柑橘 —— 濟州三件事。</p>
+        <div class="food-item">
+          <b>每日偶來市場</b>
+          <span>黑豬肉肉餅、紫菜包飯、即榨柑橘汁，朝早食早餐夜晚食宵夜都啱。</span>
+          <span class="where">SEOGWIPO · DAY 1-2</span>
+        </div>
+        <div class="food-item">
+          <b>東門在來市場夜市</b>
+          <span>黑豬肉串燒、鮑魚飯卷、柑橘麻糬 —— 夜晚最熱鬧嘅一站式晚餐。</span>
+          <span class="where">JEJU CITY · DAY 2-3</span>
+        </div>
+        <div class="food-item">
+          <b>橋來里 교래향</b>
+          <span>黑豬肉定食，或者 30 年老字號土雞涮涮鍋，山區風味。</span>
+          <span class="where">GYORAE · DAY 3</span>
+        </div>
+      </div>
+
+      <div class="food-col reveal">
+        <h4><small>DAEJEON</small>大田半日快閃</h4>
+        <p class="sub">13:15 落車，一個下午食晒大田精華。</p>
+        <div class="food-item">
+          <b>聖心堂 성심당 本店</b>
+          <span>全韓國公認第一嘅炸菠蘿包（튀김소보로）與明太子法棍（명란바게트），行 15 分鐘或的士 5 分鐘由大田站到。</span>
+          <span class="where">DAY 4 · 13:15-14:00</span>
+        </div>
+        <div class="food-item">
+          <b>大田中央市場</b>
+          <span>食完麵包行過隔離食正餐：大田式刀削麵（칼국수）同豬腳，地道又抵食。</span>
+          <span class="where">DAY 4 · 14:00-14:30</span>
+        </div>
+        <div class="food-item">
+          <b>裕泉溫泉足湯</b>
+          <span>行咗成日，17:45 嚟浸免費天然溫泉足湯回一回氣，先上 KTX。</span>
+          <span class="where">DAY 4 · 17:35-18:05</span>
+        </div>
+      </div>
+
+      <div class="food-col reveal">
+        <h4><small>SEOUL</small>首爾潮流與高光</h4>
+        <p class="sub">唔行明洞路邊攤，改行呢幾站。</p>
+        <div class="food-item">
+          <b>聖水洞 · 漢南洞</b>
+          <span>EMPTY、Point of View、Tamburins、Nonfiction、Mardi Mercredi、EENK。</span>
+          <span class="where">DAY 8 · 全日</span>
+        </div>
+        <div class="food-item">
+          <b>The Hyundai Seoul</b>
+          <span>5 樓 Sound Forest 聖誕村（建議 CatchTable 先預約），B2 全韓最潮流行服飾。</span>
+          <span class="where">YEUIDO · DAY 8</span>
+        </div>
+        <div class="food-item">
+          <b>春川 통나무집닭갈비</b>
+          <span>春川在地無人不知嘅辣炒雞排，配紫蘇葉同最後嘅炒飯收尾。</span>
+          <span class="where">CHUNCHEON · DAY 6</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 錦囊 -->
+<section id="notes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-kicker"><span class="sec-num">06</span><span class="sec-en">FIELD NOTES</span></div>
+      <h2 class="sec-title"><span class="zh">行前錦囊</span></h2>
+      <p class="sec-sub">應急、支付、交通、行前一週任務 —— 出發前碌一次就安心。</p>
+      <div class="sec-rule"></div>
+    </div>
+
+    <div class="tip-grid">
+      <div class="tip-card reveal">
+        <h4><small>EMERGENCY</small>應急號碼</h4>
+        <div class="sos">
+          <div><b>112</b><span>POLICE</span></div>
+          <div><b>119</b><span>FIRE / AMBULANCE</span></div>
+          <div><b>1330</b><span>TRAVEL HOTLINE</span></div>
+        </div>
+        <p style="font-size:12.5px;color:var(--ink-2);line-height:1.95;margin-top:12px">
+          1330 係 24 小時旅遊熱線，支援多語言（包括中文），交通、投訴、遺失都可以打。
+          租車出任何事故，先影相再打俾租車公司，唔好私了。
+        </p>
+      </div>
+
+      <div class="tip-card reveal">
+        <h4><small>MONEY &amp; TRANSPORT</small>支付與交通</h4>
+        <div class="kv"><b>付款</b><span>信用卡普及，市場小食備小額現金</span></div>
+        <div class="kv"><b>WOWPASS</b><span>遊客專用卡，可充值 + 匯率較好</span></div>
+        <div class="kv"><b>T-MONEY</b><span>地鐵巴士通用，便利店可增值</span></div>
+        <div class="kv"><b>AREX</b><span>仁川 ↔ 首爾站直達約 43 分鐘</span></div>
+        <div class="kv"><b>ITX-青春</b><span>龍山/清涼里 ↔ 春川，Day 6 用</span></div>
+        <div class="kv"><b>出租車</b><span>Kakao T 叫車最方便，可綁信用卡</span></div>
+      </div>
+
+      <div class="tip-card reveal">
+        <h4><small>T-7 CHECKLIST</small>行前一週任務</h4>
+        <div class="pre-list" id="preList"></div>
+      </div>
+
+      <div class="tip-card reveal">
+        <h4><small>ROAD RULES</small>韓國駕駛速記</h4>
+        <div class="kv"><b>行車方向</b><span>右側行車，方向盤左舵</span></div>
+        <div class="kv"><b>紅燈</b><span>紅燈禁止右轉（除非有指示牌）</span></div>
+        <div class="kv"><b>斑馬線</b><span>必須禮讓行人，否則重罰</span></div>
+        <div class="kv"><b>兒童</b><span>6 歲以下必須使用兒童安全座椅</span></div>
+        <div class="kv"><b>酒精</b><span>零容忍，揸車完全唔飲酒</span></div>
+        <div class="kv"><b>高速</b><span>限速 80-110km/h，切線打燈</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="foot-inner">
+    <h3 class="foot-title reveal">下一趟旅程，<br><em>只需要改幾行數據。</em></h3>
+    <div class="foot-steps">
+      <div class="foot-step reveal">
+        <b>STEP 01</b>
+        <p>打開本檔，撳右鍵用文字編輯器（VS Code / Notepad++）開啟。</p>
+      </div>
+      <div class="foot-step reveal">
+        <b>STEP 02</b>
+        <p>改 script 入面嘅 <code style="font-family:var(--mono);color:var(--gold)">tripDays</code>、<code style="font-family:var(--mono);color:var(--gold)">packing</code>、<code style="font-family:var(--mono);color:var(--gold)">preTasks</code> 數據 —— 改日期、地點、時間就得。</p>
+      </div>
+      <div class="foot-step reveal">
+        <b>STEP 03</b>
+        <p>換上新嘅 Google My Map 連結，存檔 —— 成個網站即刻變成下一趟旅程嘅專屬 Guidebook。</p>
+      </div>
+    </div>
+    <div class="foot-meta">
+      <span>KOREA TRIP 2026 · TRAVEL JOURNAL</span>
+      <span>JEJU — CHEONGJU — DAEJEON — SEOUL</span>
+      <span>OFFLINE-READY · SINGLE FILE</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   資料層：下次旅行只需要改呢度
+   ========================================================= */
+const tripDays = [
+  {
+    num:'01', label:'Day 1', date:'11.07', short:'濟州東南', zone:'濟州 · 東南環線',
+    highlight:'鎖定城山日出峰 45 分鐘快攻，牛島深度停留 4 小時；17:00 準時抵南原큰엉，捕捉樹洞落日斜陽。',
+    events:[
+      {time:'06:10', end:'', title:'抵達濟州國際機場', desc:'入境審查、提行李、梳洗換衫，精神飽滿開始旅程。', tag:'航班'},
+      {time:'08:00', end:'08:35', title:'租車中心取車', desc:'驗車影相留底、設定 Naver Map、連接藍牙同手機支架。', tag:'自駕'},
+      {time:'09:50', end:'10:35', title:'城山日出峰', desc:'快速登頂或行海景步道，預留 45 分鐘，夠影火山口全景。', tag:'景點'},
+      {time:'10:50', end:'15:35', title:'牛島深度遊', desc:'乘船出海、租電單車環島、午餐、花生雪糕放鬆 4 小時。', tag:'景點'},
+      {time:'16:00', end:'16:40', title:'表善海邊 NO VACATION', desc:'海景咖啡店小休 40 分鐘，甜品補充體力。', tag:'美食'},
+      {time:'17:00', end:'17:40', title:'南原큰엉海岸', desc:'夕陽韓半島樹洞與懸崖海景 —— 全日最重要嘅 40 分鐘。', tag:'景點'},
+      {time:'18:30', end:'19:30', title:'西歸浦每日偶來市場', desc:'黑豬肉肉餅、紫菜包飯、柑橘汁，地道街頭小食晚餐。', tag:'美食'},
+      {time:'19:50', end:'22:00', title:'西歸浦天文科學館', desc:'天象儀解說及天文望遠鏡觀星，深秋星空特別清。', tag:'景點'}
+    ]
+  },
+  {
+    num:'02', label:'Day 2', date:'11.08', short:'濟州西南', zone:'濟州 · 西南環線',
+    highlight:'山茶花粉紅草 ➔ 搭的士避開 1100 山路 ➔ 晨星岳芒草落日 ➔ 17:55 壓線老衡超市 ➔ 東門夜市。',
+    events:[
+      {time:'07:45', end:'08:45', title:'每日偶來市場清晨早餐', desc:'黑豬肉肉餅、紫菜包飯、即榨柑橘汁，為全日補足電量。', tag:'美食'},
+      {time:'09:10', end:'10:45', title:'休愛里自然生活公園', desc:'深秋山茶花與粉紅亂子草，摘柑橘體驗，人少光線好。', tag:'景點'},
+      {time:'11:25', end:'13:05', title:'ICC 轉乘的士上 1100 高地', desc:'漫步濕地木棧道睇紅葉芒草，GS25 飲熱飲，約的士回程取車。', tag:'景點'},
+      {time:'13:20', end:'14:20', title:'Hello Kitty Island', desc:'打卡及紀念品選購，行程入面嘅輕鬆一小時。', tag:'景點'},
+      {time:'15:30', end:'17:30', title:'晨星岳', desc:'漫步金黃芒草海，17:30 準時上車出發，唔好戀戰。', tag:'景點'},
+      {time:'17:55', end:'18:55', title:'老衡超級市場', desc:'壓線入場，沉浸式黑白光影藝術空間。', tag:'景點'},
+      {time:'19:20', end:'', title:'東門在來市場夜市', desc:'黑豬肉串燒、鮑魚飯卷、柑橘麻糬，全日完美收尾。', tag:'美食'}
+    ]
+  },
+  {
+    num:'03', label:'Day 3', date:'11.09', short:'濟州中北', zone:'濟州 · 中北部 · 夜晚還車',
+    highlight:'復古小火車 ➔ 天空之池 ➔ 15:30 山君不離芒草落日 ➔ 東門夜市晚餐 ➔ 20:30 還車收工，執行李聽朝飛。',
+    events:[
+      {time:'09:00', end:'10:30', title:'Ecoland 生態樂園', desc:'英式復古蒸汽火車、風車湖畔打卡，早到人少。', tag:'景點'},
+      {time:'10:40', end:'11:50', title:'石頭文化公園', desc:'打卡標誌性「天空之池」倒影與火山岩造景。', tag:'景點'},
+      {time:'12:00', end:'13:10', title:'橋來里午餐', desc:'교래향 黑豬肉定食，或者 30 年老字號土雞涮涮鍋。', tag:'美食'},
+      {time:'13:25', end:'15:15', title:'松堂里濟州童話村', desc:'巨石瀑布，全濟州最大特色星巴克歇腳。', tag:'景點'},
+      {time:'15:30', end:'17:35', title:'山君不離', desc:'平緩步道登上火山口，沉浸銀白芒草海睇落日。', tag:'景點'},
+      {time:'18:15', end:'20:15', title:'中央地下街 & 東門夜市', desc:'血拼美妝潮流服飾，東門夜市食埋晚餐，補齊伴手禮。', tag:'購物'},
+      {time:'20:30', end:'21:00', title:'還車（9號晚收車）', desc:'機場 24h 分店或市區分店交車：入滿油、影相留底、確認按金退還；之後搭的士 10 分鐘返酒店。', tag:'自駕'},
+      {time:'21:15', end:'22:30', title:'返酒店執行李', desc:'執定行李同手信，預辦登機搞定，聽朝輕裝出發機場。', tag:'酒店'}
+    ]
+  },
+  {
+    num:'04', label:'Day 4', date:'11.10', short:'大田半日', zone:'轉場日 · 濟州 ✈ 清州 ➔ 大田 ➔ 首爾',
+    highlight:'LJ748 10:05 起飛、11:15 落清州；BUS/TAXI 轉 KTX，13:00 前到大田。聖心堂 + 中央市場 + 半日景點，18:35 KTX 上首爾，23:00 前 check in。',
+    events:[
+      {time:'08:15', end:'08:40', title:'的士出發濟州機場', desc:'酒店出發 10 分鐘車程，9 號晚已還車，今日完全無需交收，輕裝出發。', tag:'交通'},
+      {time:'08:40', end:'09:45', title:'辦理登機 · LJ748', desc:'國內線寄艙兩日戰利品，安檢後食埋早餐先上機。', tag:'航班'},
+      {time:'10:05', end:'11:15', title:'LJ748 濟州 ➔ 清州', desc:'濟州航空，飛行約 1 小時 10 分鐘。', tag:'航班'},
+      {time:'11:35', end:'12:15', title:'清州機場 ➔ 五松站（오송역）', desc:'機場巴士或的士約 30-40 分鐘轉乘 KTX，清州機場細、人少好快搞掂。', tag:'交通'},
+      {time:'12:30', end:'12:55', title:'KTX 五松 ➔ 大田', desc:'車程約 20 分鐘，13:00 前到達大田站。', tag:'交通'},
+      {time:'12:55', end:'13:10', title:'大田站寄存行李', desc:'Korail 儲物櫃寄存大喼，輕裝行一個下午。', tag:'交通'},
+      {time:'13:15', end:'14:30', title:'聖心堂 성심당 本店 + 中央市場', desc:'本店 08:00-22:00 全年無休：炸菠蘿包、明太子法棍；之後行過隔離中央市場食刀削麵、豬腳。', tag:'美食'},
+      {time:'15:00', end:'17:20', title:'二選一：EXPO 科學公園 / 慶周山紅土步道', desc:'EXPO（17:40 收館，11/10 星期二開放）：科學館 + EXPO 大橋打卡；紅土步道（계족산 황톳길）：全國最長 4.5km 赤腳紅泥路 + 山頂展望台。', tag:'景點'},
+      {time:'17:35', end:'18:05', title:'裕泉溫泉免費足湯（유성온천）', desc:'100% 天然溫泉 39-42°C，07:00-22:00 免費開放；揀咗紅土步道就跳過呢站直上車站。', tag:'景點'},
+      {time:'18:35', end:'19:35', title:'KTX 大田 ➔ 首爾', desc:'班次好密，買 18:30-19:30 之間嗰班最穩陣，車上小休。', tag:'交通'},
+      {time:'20:00', end:'20:30', title:'首爾酒店 Check in', desc:'比 23:00 deadline 仲有兩個幾鐘 buffer，就算 KTX 輕微延誤都唔怕。', tag:'酒店'},
+      {time:'21:00', end:'22:30', title:'明洞宵夜散策', desc:'放低行李即刻出返去，正式展開首爾篇。', tag:'美食'}
+    ]
+  },
+  {
+    num:'05', label:'Day 5', date:'11.11', short:'和談林', zone:'首爾 · 和談林',
+    highlight:'跟 Klook Day Tour 去和談林沉浸式賞秋葉，回程後夜晚去東大門 DDP 睇夜景行街。',
+    events:[
+      {time:'08:30', end:'', title:'明洞 2 號出口集合', desc:'Klook 和談林 Day Tour，準時上車。', tag:'交通'},
+      {time:'09:30', end:'15:00', title:'和談林 수목원', desc:'深秋楓葉森林步道，高低落差影相極靚，午餐於園內解決。', tag:'景點'},
+      {time:'16:00', end:'18:00', title:'返回首爾 · 酒店休息', desc:'洗個熱水澡，為夜晚行街補充體力。', tag:'酒店'},
+      {time:'18:30', end:'21:30', title:'東大門 DDP 設計廣場', desc:'LED 薔薇園、設計廣場建築、深夜購物。', tag:'購物'}
+    ]
+  },
+  {
+    num:'06', label:'Day 6', date:'11.12', short:'春川一日', zone:'春川 · 山谷一日遊',
+    highlight:'ITX-青春號入春川，Rail Bike 穿音樂山洞，小法國村打卡，晚餐食最正宗嘅春川辣炒雞排。',
+    events:[
+      {time:'08:30', end:'09:40', title:'ITX-青春號 ➔ 春川', desc:'龍山/清涼里出發，車程約 1 小時。', tag:'交通'},
+      {time:'10:00', end:'12:00', title:'春川 Rail Bike', desc:'四人車穿過音樂山洞與河谷，凍天景色醉人。', tag:'景點'},
+      {time:'12:30', end:'14:00', title:'小法國村 Petite France', desc:'童話式建築群打卡，配熱飲取暖。', tag:'景點'},
+      {time:'14:30', end:'16:30', title:'南怡島（自選）', desc:'《冬季戀歌》場景，白樺林散步。', tag:'景點'},
+      {time:'18:00', end:'19:30', title:'통나무집닭갈비', desc:'春川在地無人不知嘅辣炒雞排，配紫蘇葉同炒飯收尾。', tag:'美食'},
+      {time:'20:00', end:'', title:'返回首爾', desc:'ITX 回程，早啲休息。', tag:'交通'}
+    ]
+  },
+  {
+    num:'07', label:'Day 7', date:'11.13', short:'首爾悠閒', zone:'首爾 · 悠閒節奏',
+    highlight:'恩平韓屋村嘅寧靜上晝，下午 Pickleball 活動一下，留返晚上俾自己充電。',
+    events:[
+      {time:'10:00', end:'12:30', title:'恩平韓屋村', desc:'寧靜韓屋景致，遠眺北漢山，人少清幽。', tag:'景點'},
+      {time:'13:30', end:'15:00', title:'Pickleball / 休閒運動', desc:'行程中段要郁下，晚上先唔會攰。', tag:'景點'},
+      {time:'16:00', end:'18:00', title:'延南洞咖啡巡禮', desc:'首爾獨立咖啡店密度最高嘅一區，慢慢嘆。', tag:'美食'},
+      {time:'19:00', end:'21:00', title:'自由晚餐', desc:'補回之前未食到嘅餐廳，或者酒店附近搵驚喜。', tag:'美食'}
+    ]
+  },
+  {
+    num:'08', label:'Day 8', date:'11.14', short:'首爾潮流', zone:'首爾 · 潮流聖地',
+    highlight:'The Hyundai 聖誕村 ➔ 聖水洞設計小店 ➔ 漢南洞潮牌 —— 全日行街打卡最高密度。',
+    events:[
+      {time:'11:00', end:'13:30', title:'The Hyundai Seoul', desc:'5 樓 Sound Forest 聖誕村（建議 CatchTable 預約），B2 潮流服飾。', tag:'購物'},
+      {time:'14:30', end:'17:30', title:'聖水洞 Seongsu', desc:'EMPTY、Point of View、Tamburins、Nonfiction 逐間朝聖。', tag:'購物'},
+      {time:'18:00', end:'20:30', title:'漢南洞 Hannam-dong', desc:'Mardi Mercredi、Marithé、EENK，晚餐於附近解決。', tag:'購物'},
+      {time:'21:00', end:'', title:'整理行李', desc:'預留時間執行李，最後一晚早啲休息。', tag:'酒店'}
+    ]
+  },
+  {
+    num:'09', label:'Day 9', date:'11.15', short:'返港日', zone:'首爾 · 返港',
+    highlight:'朝早醫美保養，午後出發仁川機場退稅免稅，19:15 ZE861 返香港。',
+    events:[
+      {time:'10:00', end:'13:00', title:'首爾醫美保養', desc:'皮膚管理 / 水光療程，出發前預約好時段。', tag:'保養'},
+      {time:'13:30', end:'14:30', title:'午餐 & 最後手信', desc:'補買 Olive Young、零食手信，回憶打包回港。', tag:'購物'},
+      {time:'15:00', end:'17:00', title:'出發仁川機場', desc:'機場鐵路或巴士，預留充足時間。', tag:'交通'},
+      {time:'17:00', end:'18:45', title:'機場退稅 · 免稅店', desc:'退稅機辦理、最後巡一圈免稅店。', tag:'購物'},
+      {time:'19:15', end:'', title:'ZE861 返香港', desc:'九日深秋之旅完美落幕。', tag:'航班'}
+    ]
+  }
+];
+
+const packing = [
+  {cat:'證件與金融', items:['國際駕照 IDP（取車必查）','香港駕照實體','護照 + 護照影印備份','WOWPASS / T-Money 卡','實體信用卡（租車按金）','小額現金韓元']},
+  {cat:'電器與導航', items:['韓國 Type C/F 雙圓孔轉插','10000mAh 磁吸行動電源','車用手機支架','Naver Map 離線區域下載','USB-C 充電線 x2','相機 / Insta360']},
+  {cat:'11月穿搭', items:['發熱內衣 x3','防風連帽風褸','羊毛長大褸 / 輕羽絨','毛線帽 + 大圍巾','暖包 x5','防滑短靴 / 越野跑鞋']},
+  {cat:'個人護理', items:['超滋潤潤唇膏','潤膚霜 / 護手霜','暈浪丸（牛島渡輪）','常備藥（腸胃/感冒/止痛）','保溫瓶','摺疊環保袋']}
+];
+
+const preTasks = [
+  '買韓國 eSIM / 電話卡，確認數據用量',
+  '下載 Naver Map / Kakao Map 離線資料',
+  '網上預辦登機 LJ748（11/10 10:05 濟州→清州）',
+  '確認還車安排（11/9 晚 20:30 · 機場 24h 分店）',
+  'Klook 預訂和談林 Day Tour（Day 5）',
+  'CatchTable 預約 The Hyundai 聖誕村',
+  '預約 Day 9 醫美時段',
+  '兌換適量韓元現金 + 開通海外簽賬',
+  '打印 IDP、護照、保險單副本',
+  '手機下載本頁並加入主畫面'
+];
+
+/* =========================================================
+   儲存工具（離線 / 私隱模式都安全）
+   ========================================================= */
+const store = {
+  get(k){ try { return JSON.parse(localStorage.getItem(k)) || {}; } catch(e){ return {}; } },
+  set(k,v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+};
+const checks = store.get('k26-checks');
+const packChecks = store.get('k26-pack');
+const preChecks = store.get('k26-pre');
+
+/* =========================================================
+   行程渲染
+   ========================================================= */
+let activeDay = 0;
+const dayBar = document.getElementById('dayBar');
+const timeline = document.getElementById('timeline');
+
+function renderDayBar(){
+  dayBar.innerHTML = tripDays.map((d,i)=>`
+    <button class="day-chip ${i===activeDay?'active':''}" data-i="${i}">
+      <b>${d.label}</b><span>${d.date} · ${d.short}</span>
+    </button>`).join('');
+}
+
+function renderTimeline(){
+  const d = tripDays[activeDay];
+  document.getElementById('dayZone').textContent = d.zone;
+  document.getElementById('dayTitle').textContent = d.label + ' · ' + d.date;
+  document.getElementById('dayHighlight').textContent = d.highlight;
+  const hero = document.getElementById('dayHero');
+  hero.setAttribute('data-num', d.num);
+
+  timeline.innerHTML = d.events.map((ev,i)=>{
+    const id = 'd' + activeDay + '-' + i;
+    const on = !!checks[id];
+    return `
+    <article class="tl-item ${on?'done':''} reveal">
+      <div class="tl-time">${ev.time}${ev.end?'<i>– '+ev.end+'</i>':''}</div>
+      <div class="tl-body">
+        <div class="tl-top">
+          <h4>${ev.title}</h4>
+          <span class="tag ${ev.tag==='美食'?'food':ev.tag==='購物'?'shop':''}">${ev.tag}</span>
+        </div>
+        <p class="tl-desc">${ev.desc}</p>
+        <button class="check-btn ${on?'on':''}" data-id="${id}" aria-label="標記完成">✓</button>
+      </div>
+    </article>`;
+  }).join('');
+
+  timeline.classList.remove('fade-swap');
+  void timeline.offsetWidth;
+  timeline.classList.add('fade-swap');
+  observeReveals();
+}
+
+dayBar.addEventListener('click', e=>{
+  const btn = e.target.closest('.day-chip');
+  if(!btn) return;
+  activeDay = +btn.dataset.i;
+  renderDayBar();
+  renderTimeline();
+});
+
+timeline.addEventListener('click', e=>{
+  const btn = e.target.closest('.check-btn');
+  if(!btn) return;
+  const id = btn.dataset.id;
+  checks[id] = !checks[id];
+  store.set('k26-checks', checks);
+  btn.classList.toggle('on', !!checks[id]);
+  btn.closest('.tl-item').classList.toggle('done', !!checks[id]);
+});
+
+/* =========================================================
+   打包清單 + 進度
+   ========================================================= */
+const packGrid = document.getElementById('packGrid');
+function renderPacking(){
+  packGrid.innerHTML = packing.map((col,ci)=>`
+    <div class="pack-col reveal">
+      <h5>${col.cat}</h5>
+      ${col.items.map((it,ii)=>{
+        const id = 'p'+ci+'-'+ii;
+        const on = !!packChecks[id];
+        return `<div class="pack-item ${on?'on':''}" data-id="${id}">
+          <div class="pack-box">✓</div><span>${it}</span></div>`;
+      }).join('')}
+    </div>`).join('');
+  updateProgress();
+  observeReveals();
+}
+function updateProgress(){
+  const total = packing.reduce((n,c)=>n+c.items.length,0);
+  const done = Object.values(packChecks).filter(Boolean).length;
+  const pct = total ? Math.round(done/total*100) : 0;
+  document.getElementById('packPct').textContent = pct + '%';
+  document.getElementById('packCount').textContent = done + ' / ' + total;
+  document.getElementById('packBar').style.width = pct + '%';
+}
+packGrid.addEventListener('click', e=>{
+  const row = e.target.closest('.pack-item');
+  if(!row) return;
+  const id = row.dataset.id;
+  packChecks[id] = !packChecks[id];
+  store.set('k26-pack', packChecks);
+  row.classList.toggle('on', !!packChecks[id]);
+  updateProgress();
+});
+
+/* =========================================================
+   行前任務
+   ========================================================= */
+const preList = document.getElementById('preList');
+preList.innerHTML = preTasks.map((t,i)=>{
+  const on = !!preChecks['t'+i];
+  return `<div class="pre-item ${on?'on':''}" data-id="t${i}">
+    <div class="pack-box">✓</div><span>${t}</span></div>`;
+}).join('');
+preList.addEventListener('click', e=>{
+  const row = e.target.closest('.pre-item');
+  if(!row) return;
+  const id = row.dataset.id;
+  preChecks[id] = !preChecks[id];
+  store.set('k26-pre', preChecks);
+  row.classList.toggle('on', !!preChecks[id]);
+});
+
+/* =========================================================
+   倒數計時
+   ========================================================= */
+const target = new Date('2026-11-07T06:10:00+09:00').getTime();
+function tick(){
+  const diff = target - Date.now();
+  const pad = n => String(n).padStart(2,'0');
+  if(diff <= 0){
+    document.getElementById('cdD').textContent = 'GO';
+    document.getElementById('cdH').textContent = '!!';
+    document.getElementById('cdM').textContent = '!!';
+    document.getElementById('cdS').textContent = '!!';
+    return;
+  }
+  const s = Math.floor(diff/1000);
+  document.getElementById('cdD').textContent = pad(Math.floor(s/86400));
+  document.getElementById('cdH').textContent = pad(Math.floor(s%86400/3600));
+  document.getElementById('cdM').textContent = pad(Math.floor(s%3600/60));
+  document.getElementById('cdS').textContent = pad(s%60);
+}
+tick(); setInterval(tick, 1000);
+
+/* =========================================================
+   地圖展開 / 收起
+   ========================================================= */
+function toggleMap(){
+  const f = document.getElementById('mapFrame');
+  const open = f.style.display !== 'none';
+  f.style.display = open ? 'none' : 'block';
+}
+document.getElementById('mapToggle').addEventListener('click', toggleMap);
+document.getElementById('mapToggleTop').addEventListener('click', ()=>{
+  document.getElementById('mapPanel').scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+/* =========================================================
+   進場動畫 + 導覽高亮
+   ========================================================= */
+let revealObserver;
+function observeReveals(){
+  if(!revealObserver){
+    revealObserver = new IntersectionObserver(entries=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){
+          en.target.classList.add('in');
+          revealObserver.unobserve(en.target);
+        }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+  }
+  document.querySelectorAll('.reveal:not(.in), .sec-rule:not(.in)').forEach(el=>revealObserver.observe(el));
+}
+
+const spy = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      document.querySelectorAll('#navLinks a').forEach(a=>{
+        a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id);
+      });
+    }
+  });
+}, {rootMargin:'-42% 0px -52% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>spy.observe(s));
+
+/* 啟動 */
+renderDayBar();
+renderTimeline();
+renderPacking();
+observeReveals();
+</script>
+</body>
+</html>
