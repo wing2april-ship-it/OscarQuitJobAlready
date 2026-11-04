@@ -104,7 +104,7 @@ a{color:inherit;text-decoration:none}
   display:block;font-size:clamp(22px,3.4vw,44px);margin-top:14px;letter-spacing:.02em;
 }
 .hero-lede{
-  max-width:520px;margin-top:22px;color:var(--on-night-muted);
+  max-width:540px;margin-top:22px;color:var(--on-night-muted);
   font-size:15px;line-height:1.9;
 }
 .hero-side{
@@ -174,7 +174,7 @@ section{scroll-margin-top:72px}
   font-size:clamp(34px,5.2vw,62px);margin:14px 0 12px;letter-spacing:.015em;
 }
 .sec-title .zh{font-family:var(--zh)}
-.sec-sub{max-width:600px;color:var(--ink-2);font-size:14.5px;line-height:1.95}
+.sec-sub{max-width:620px;color:var(--ink-2);font-size:14.5px;line-height:1.95}
 .sec-rule{width:100%;height:1px;background:var(--line);margin-top:34px;position:relative;overflow:hidden}
 .sec-rule::after{
   content:'';position:absolute;inset:0;width:0;background:var(--accent);
@@ -376,7 +376,7 @@ section{scroll-margin-top:72px}
 .fit-card{border:1px solid var(--line);border-radius:4px;padding:30px;background:var(--card)}
 .fit-card h4{
   font-family:var(--serif);font-size:24px;font-weight:600;margin-bottom:6px;
-  display:flex;align-items:center;gap:12px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
 }
 .fit-card h4 .who{
   font-family:var(--mono);font-size:9px;letter-spacing:.3em;padding:4px 10px;border-radius:999px;
@@ -391,6 +391,27 @@ section{scroll-margin-top:72px}
   min-width:52px;padding-top:3px;
 }
 .fit-card .layer p{font-size:13px;line-height:1.9;color:var(--ink-2)}
+
+/* 穿搭日曆 */
+.outfit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:52px}
+.outfit-card{
+  border:1px solid var(--line);border-radius:4px;background:var(--card);
+  padding:22px 22px 20px;transition:transform .35s ease,border-color .35s ease;
+}
+.outfit-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.outfit-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.outfit-date{font-family:var(--mono);font-size:10px;letter-spacing:.28em;color:var(--accent)}
+.outfit-slot{
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.26em;color:var(--paper);
+  background:var(--moss);padding:3px 9px;border-radius:999px;
+}
+.outfit-card h4{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.45;letter-spacing:.02em}
+.outfit-style{font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--moss);margin:6px 0 12px}
+.outfit-row{display:flex;gap:10px;font-size:12px;line-height:1.8;color:var(--ink-2);padding:3px 0}
+.outfit-row b{
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.22em;color:var(--muted);
+  min-width:52px;padding-top:3px;flex:0 0 auto;
+}
 
 /* 打包清單 */
 .pack-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
@@ -500,7 +521,7 @@ footer::before{
 /* ===== 響應式 ===== */
 @media (max-width:980px){
   .day-panel{grid-template-columns:1fr;gap:34px}
-  .hotel-grid,.food-grid,.pack-grid{grid-template-columns:1fr 1fr}
+  .hotel-grid,.food-grid,.pack-grid,.outfit-grid{grid-template-columns:1fr 1fr}
   .warn-band{grid-template-columns:1fr}
   .hero-side{display:none}
 }
@@ -509,7 +530,7 @@ footer::before{
   .hero-inner{padding:64px 20px 52px}
   .topbar-inner{padding:0 20px}
   .brand .name{display:none}
-  .road-grid,.wx-grid,.fit-grid,.tip-grid,.hotel-grid,.food-grid,.pack-grid,.foot-steps{grid-template-columns:1fr}
+  .road-grid,.wx-grid,.fit-grid,.tip-grid,.hotel-grid,.food-grid,.pack-grid,.outfit-grid,.foot-steps{grid-template-columns:1fr}
   .tl::before{left:0}
   .tl-item{grid-template-columns:1fr;gap:8px;padding:18px 0 18px 22px}
   .tl-time{text-align:left;display:flex;gap:10px;align-items:baseline}
@@ -543,7 +564,7 @@ footer::before{
     <div class="nav-links" id="navLinks">
       <a href="#itinerary">行程</a>
       <a href="#drive">自駕</a>
-      <a href="#stay">酒店</a>
+      <a href="#stay">住宿</a>
       <a href="#style">穿搭</a>
       <a href="#taste">食買</a>
       <a href="#notes">錦囊</a>
@@ -558,23 +579,23 @@ footer::before{
     <div class="hero-eyebrow reveal">
       <span class="rule"></span>
       <span>JEJU · CHEONGJU · DAEJEON · SEOUL</span>
-      <span>2026.11.07 — 11.15</span>
+      <span>2026.11.06 深夜 — 11.15</span>
     </div>
     <h1 class="hero-title reveal">
       <span class="zh">深秋，<br>從濟州到首爾</span>
       <em>Nine days of silver grass, bakeries &amp; city lights.</em>
     </h1>
     <p class="hero-lede reveal">
-      一份為兩個人寫嘅深秋旅行手帖 —— 濟州自駕環島追落日、9 號晚收車；
-      10 號朝早搭 LJ748 飛清州轉 KTX，大田半日快閃聖心堂；
-      再上首爾行街、醫美，最後帶住滿滿回憶返香港。
+      紅眼機起飛前喺 Plaza Premium 沖個涼；濟州揸 KIA MORNING 環島追落日，
+      9 號晚機場店收車；LJ7484 飛清州轉 KTX，大田同 Amber 探店；
+      再上首爾行街醫美，帶住滿滿回憶返香港。
     </p>
 
     <div class="hero-stats reveal">
       <div class="stat"><b>09</b><span>DAYS</span></div>
-      <div class="stat"><b>04</b><span>STOPS</span></div>
+      <div class="stat"><b>10</b><span>TABS · DAY 0-9</span></div>
       <div class="stat"><b>320<i>km</i></b><span>SELF-DRIVE · DAY 1-3</span></div>
-      <div class="stat"><b>02</b><span>TRAVELERS</span></div>
+      <div class="stat"><b>02+1</b><span>TRAVELERS + AMBER</span></div>
     </div>
 
     <div class="cd-wrap reveal">
@@ -584,7 +605,7 @@ footer::before{
         <div class="cd-box"><b id="cdM">--</b><span>MIN</span></div>
         <div class="cd-box"><b id="cdS">--</b><span>SEC</span></div>
       </div>
-      <div class="cd-note">距離出發 · 07 NOV 06:10 抵達濟州</div>
+      <div class="cd-note">距離出發夜 · 06 NOV 20:30 機場集合打邊爐</div>
     </div>
 
     <div class="hero-actions reveal">
@@ -617,7 +638,7 @@ footer::before{
     <div class="sec-head reveal">
       <div class="sec-kicker"><span class="sec-num">01</span><span class="sec-en">DAY BY DAY</span></div>
       <h2 class="sec-title"><span class="zh">逐日行程時間軸</span></h2>
-      <p class="sec-sub">每一個時段都為「趕得切落日、咬得實航班、夜媽媽先出動」而設。點擊右上角圓圈打卡，進度自動儲存喺你部機 —— 離線重開都唔會消失。</p>
+      <p class="sec-sub">由出發夜 Lounge 到返港，每一個時段都咬實晒航班、退房時限同 Amber 嘅會合時間。點擊圓圈打卡，進度自動儲存喺你部機。</p>
       <div class="sec-rule"></div>
     </div>
 
@@ -625,7 +646,7 @@ footer::before{
 
     <div class="day-panel">
       <div>
-        <div class="day-hero reveal" id="dayHero" data-num="01">
+        <div class="day-hero reveal" id="dayHero" data-num="00">
           <div class="zone" id="dayZone"></div>
           <h3 id="dayTitle"></h3>
           <p id="dayHighlight"></p>
@@ -636,30 +657,27 @@ footer::before{
       <aside>
         <div class="side-card reveal">
           <h4><span class="ic">A</span>交通紀錄</h4>
-          <div class="kv"><b>DAY 1</b><span>97號公路 ➔ 1119號公路</span></div>
-          <div class="kv"><b>DAY 1</b><span>1132 環島公路東南段</span></div>
-          <div class="kv"><b>DAY 2</b><span>1135 平和路 + 的士上 1100 高地</span></div>
-          <div class="kv"><b>DAY 3</b><span>中北部 97 / 1112 幹道</span></div>
-          <div class="kv"><b>DAY 3 晚</b><span>20:30 還車（9號晚收車）</span></div>
-          <div class="kv"><b>DAY 4</b><span>LJ748 ✈ + BUS/TAXI + KTX</span></div>
-          <div class="kv"><b>DAY 5+</b><span>首爾地鐵 / KTX / ITX</span></div>
+          <div class="kv"><b>DAY 1-3</b><span>樂天租車 KIA MORNING 自駕</span></div>
+          <div class="kv"><b>DAY 3 晚</b><span>20:30 濟州機場店還車</span></div>
+          <div class="kv"><b>DAY 4</b><span>LJ7484 ✈ + BUS/TAXI + KTX x3（連 Amber）</span></div>
+          <div class="kv"><b>DAY 5</b><span>Klook 團巴（明洞8號出口集合）</span></div>
+          <div class="kv"><b>DAY 6+</b><span>ITX / 地鐵 / 的士</span></div>
         </div>
         <div class="side-card reveal">
           <h4><span class="ic">!</span>關鍵時限</h4>
           <ul>
-            <li><b>LJ748 10:05 起飛</b> —— 08:45 前到濟州機場櫃台。</li>
-            <li>牛島渡輪尾班 16:30，15:15 返程極安全。</li>
-            <li>老衡超市 18:00 最後入場 —— 17:55 必須壓線到。</li>
-            <li>山君不離 17:00 停止售票，15:30 抵達完美。</li>
-            <li>EXPO 科學公園 17:40 收館（11/10 星期二開放）。</li>
-            <li>大田 KTX 18:35 上車，<b>23:00 前</b> check in 穩陣。</li>
-            <li>和談林團 <b>18:10 先返抵明洞</b>；東大門 21:00 後出動。</li>
-            <li>Day 6 晏出發 <b>10:30 ITX</b>，唔去南怡島，夜晚返首爾行街。</li>
+            <li>11/6 02:10 <b>LJ954 紅眼起飛</b> —— Lounge 23:00 前入場（00:59 關門）。</li>
+            <li>金菊 11/8 <b>11:00 前退房</b>，行李放車尾箱。</li>
+            <li>Cozy Stay 11/10 <b>11:00 前退房</b>。</li>
+            <li>和談林團 <b>07:50 明洞 8 號出口</b>；光明洞窟 17:00 最後入場。</li>
+            <li>大田 KTX <b>尾班車前 2-4 班</b>，3 張連 Amber。</li>
+            <li>東大門批發 <b>11/11、11/12 兩晚都開</b>。</li>
+            <li>15 號 <b>Orta 醫美 Lunch 前搞掂</b>，提早 checkout 行李寄存。</li>
           </ul>
         </div>
         <div class="side-card reveal">
           <h4><span class="ic">T</span>轉乘小技巧</h4>
-          <p>清州機場細、人少，落機 20 分鐘搞掂。五松站（오송역）離機場最近，機場巴士或的士約 30-40 分鐘。大田站用 Korail 儲物櫃寄存行李，輕裝行一個下午再上 KTX。</p>
+          <p>清州機場細、人少，落機 20 分鐘搞掂。五松站（오송역）離機場最近，巴士或的士約 30-40 分鐘。大田站用 Korail 儲物櫃寄存大喼，輕裝跟 Amber 探店。</p>
         </div>
       </aside>
     </div>
@@ -683,7 +701,7 @@ footer::before{
     <div class="sec-head reveal">
       <div class="sec-kicker"><span class="sec-num">02</span><span class="sec-en">SAFE DRIVING</span></div>
       <h2 class="sec-title" style="color:var(--on-night)"><span class="zh">新手自駕保命路線</span></h2>
-      <p class="sec-sub">自駕只限 11/7 至 11/9 三日。濟州島中間係漢拏山，新手切忌橫越 1131（5.16道路）同 1139（1100道路）山路 —— 彎急、多霧、長斜路。以下路線全部繞開。</p>
+      <p class="sec-sub">樂天租車 KIA MORNING，自駕只限 11/7 至 11/9。新手切忌橫越 1131、1139 漢拏山山路 —— 彎急、多霧、長斜路。以下路線全部繞開。</p>
       <div class="sec-rule"></div>
     </div>
 
@@ -707,10 +725,10 @@ footer::before{
         <span class="road-tag">DAY 2 · 下午</span>
       </div>
       <div class="road-card reveal">
-        <div class="road-no">TAXI · KTX</div>
-        <h4>1100 高地搭的士 · 9號晚還車</h4>
-        <p>由 ICC 轉乘的士上高地，避開自駕山路。11 月 9 號晚 20:30 喺機場 24h 分店或市區分店交車，之後全程鐵路 + 的士，慳返晒精神。</p>
-        <span class="road-tag">DAY 2 + DAY 3 晚</span>
+        <div class="road-no">LOTTE · MORNING</div>
+        <h4>樂天租車 KIA MORNING</h4>
+        <p>11/7 濟州取車 → 11/9 晚 20:30 濟州機場店還車。車尾箱約 250L，2 個 15kg 大喼＋手提偏緊 —— 軟袋／壓縮袋必備；預計狂買可以出發前升級大一級車型。</p>
+        <span class="road-tag">DAY 1-3 · 全程</span>
       </div>
     </div>
 
@@ -721,7 +739,7 @@ footer::before{
       </div>
       <div class="warn-card reveal">
         <h5>取車與還車</h5>
-        <p>取車時影低全車傷痕。還車前入滿油、執走所有行李同垃圾，影相留底，確認按金退還安排。還車後搭的士 10 分鐘返酒店。</p>
+        <p>取車影低全車傷痕。還車前入滿油、執齊行李垃圾、影相留底、確認按金退還。行李帶齊先交車，之後搭的士 10 分鐘返 Cozy Stay。</p>
       </div>
       <div class="warn-card reveal">
         <h5>絕對紅線</h5>
@@ -731,13 +749,13 @@ footer::before{
   </div>
 </section>
 
-<!-- 03 酒店 -->
+<!-- 03 住宿 -->
 <section id="stay">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="sec-kicker"><span class="sec-num">03</span><span class="sec-en">WHERE TO STAY</span></div>
-      <h2 class="sec-title"><span class="zh">酒店精準推薦</span></h2>
-      <p class="sec-sub">三個住宿點全部符合「大床房 + 極度乾淨 + 好泊車 + 生活機能強」，位置經過行程動線反覆推敲。</p>
+      <div class="sec-kicker"><span class="sec-num">03</span><span class="sec-en">CONFIRMED STAYS</span></div>
+      <h2 class="sec-title"><span class="zh">已確認住宿</span></h2>
+      <p class="sec-sub">三間酒店訂單全部對位行程：入住退房時限、行李動線、深夜 check-in 都計好埋。</p>
       <div class="sec-rule"></div>
     </div>
 
@@ -745,13 +763,13 @@ footer::before{
       <div class="hotel-card reveal">
         <div class="hotel-top">
           <div class="hotel-city">SEOGWIPO · DAY 1</div>
-          <h4>Heyy Seogwipo</h4>
-          <div class="alt">西歸浦黑伊酒店 / HOTEL BRIDGE</div>
+          <h4>金菊西歸浦海洋酒店</h4>
+          <div class="alt">11/7 15:00 入住 → 11/8 11:00 退房</div>
         </div>
         <div class="hotel-body">
-          <p>乾淨簡約北歐風，開揚海景大床房。行去每日偶來市場只要 7-10 分鐘，宵夜補給零壓力。樓下泊車場闊落，新手泊車完全無難度。</p>
+          <p>行去每日偶來市場 7-10 分鐘，宵夜補給零壓力。<b>Day 2 早餐後即 checkout，行李放 KIA MORNING 車尾箱</b>，直落休愛里繼續行程。</p>
           <div class="pill-row">
-            <span class="pill">海景大床房</span><span class="pill">免費泊車</span><span class="pill">近偶來市場</span>
+            <span class="pill">近偶來市場</span><span class="pill">免費泊車</span><span class="pill">11:00 退房</span>
           </div>
         </div>
       </div>
@@ -759,27 +777,27 @@ footer::before{
       <div class="hotel-card reveal">
         <div class="hotel-top">
           <div class="hotel-city">JEJU CITY · DAY 2-3</div>
-          <h4>Shilla Stay Jeju</h4>
-          <div class="alt">新羅舒泰 / GLOUCESTER HOTEL</div>
+          <h4>Cozy Stay Jeju</h4>
+          <div class="alt">DORMITORY · 11/8 15:00-23:30 → 11/10 11:00</div>
         </div>
         <div class="hotel-body">
-          <p>三星旗下質素保證，床品乾淨度一流。位於連洞（新濟州），生活機能極強。<b>9 號晚喺機場分店還車後搭的士 10 分鐘返到酒店</b>，聽朝早出發機場一樣係 10 分鐘車程。</p>
+          <p>位於濟州市區，方便東門市場同機場。<b>Day 2 夜市後 21:30 入住（check-in 窗口 15:00-23:30）</b>；9 號晚機場店還車後的士 10 分鐘直返。</p>
           <div class="pill-row">
-            <span class="pill">立體停車場</span><span class="pill">近東門市場</span><span class="pill">機場10分鐘</span>
+            <span class="pill">近東門市場</span><span class="pill">機場10分鐘</span><span class="pill">確認獨立浴室</span>
           </div>
         </div>
       </div>
 
       <div class="hotel-card reveal">
         <div class="hotel-top">
-          <div class="hotel-city">SEOUL · DAY 4-9</div>
-          <h4>Ryse, Autograph</h4>
-          <div class="alt">傲途格精選 / L7 HONGDAE</div>
+          <div class="hotel-city">HONGDAE · DAY 4-9</div>
+          <h4>NINE BRICK 弘大</h4>
+          <div class="alt">11/10 入住 → 11/15 退房（約 12:00）</div>
         </div>
         <div class="hotel-body">
-          <p>設計感天花板！大床房空間闊落，落地玻璃採光極靚。樓下就係弘大最潮街區，返機場一程 AREX 直達唔使搬行李轉車。</p>
+          <p>弘大核心地段。<b>15 號因為早上出門去 Orta 醫美，提早 checkout、行李寄存酒店</b>，Lunch 後返嚟攞行李先出發仁川。10 號深夜 check-in 記得預先同酒店確認。</p>
           <div class="pill-row">
-            <span class="pill">設計酒店</span><span class="pill">AREX直達</span><span class="pill">弘大夜生活</span>
+            <span class="pill">弘大地鐵站旁</span><span class="pill">行李寄存</span><span class="pill">深夜check-in待確認</span>
           </div>
         </div>
       </div>
@@ -792,7 +810,7 @@ footer::before{
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-kicker"><span class="sec-num">04</span><span class="sec-en">AUTUMN WARDROBE</span></div>
-      <h2 class="sec-title"><span class="zh">深秋穿搭美學</span></h2>
+      <h2 class="sec-title"><span class="zh">深秋穿搭日曆</span></h2>
       <div class="sec-rule"></div>
     </div>
 
@@ -802,29 +820,31 @@ footer::before{
       <div class="wx-card jeju reveal">
         <div class="wx-temp">10°–17°<small>JEJU · 濟州島</small></div>
         <h4>海風係主角</h4>
-        <p>牛島、城山、南原海邊同晨星岳、山君不離山腳芒草區風勢極大，體感再低 3-4°C。防風連帽外套必帶，長髮記得多備髮夾。</p>
+        <p>牛島、城山、南原海邊同晨星岳、山君不離山腳芒草區風勢極大，體感再低 3-4°C。防風外套必帶，長髮記得多備髮夾。</p>
       </div>
       <div class="wx-card seoul reveal">
         <div class="wx-temp">3°–12°<small>SEOUL / DAEJEON · 首爾 · 大田</small></div>
         <h4>早晚溫差超大</h4>
-        <p>早上出門同日落後係兩個世界。室外暖笠笠、室內暖氣充足 —— 穿脫方便嘅層次最重要。大田同首爾差不多，春川山谷更凍，加一條頸巾。夜媽媽出動東大門，加多件輕羽絨。</p>
+        <p>室外暖笠笠、室內暖氣充足 —— 穿脫方便嘅層次最重要。大田同首爾差不多，春川山谷更凍；夜媽媽出動東大門，加多件輕羽絨。</p>
       </div>
     </div>
 
+    <div class="outfit-grid" id="outfitGrid"></div>
+
     <div class="fit-grid">
       <div class="fit-card reveal">
-        <h4>男士造型 <span class="who">MEN</span></h4>
-        <div class="layer"><b>OUTER</b><p>防風連帽風褸（Arc'teryx / Descente 風格剪裁），炭灰或深軍綠最上鏡。</p></div>
-        <div class="layer"><b>INNER</b><p>發熱衣 + 素色 Hoodie 或牛津紡襯衫，大地色系營造層次。</p></div>
-        <div class="layer"><b>BOTTOM</b><p>寬版打褶西褲或工裝長褲，行山不束縛、影相有線條。</p></div>
-        <div class="layer"><b>SHOES</b><p>Salomon / New Balance 1906R —— 行晨星岳、山君不離防跣舒適。</p></div>
+        <h4>外套系統 <span class="who">OUTER</span></h4>
+        <div class="layer"><b>輕便</b><p>淺藍搖粒絨（滑雪風褸拆出單穿）：偏輕，唔係極凍、想輕鬆攞嘅時候用。</p></div>
+        <div class="layer"><b>最強</b><p>米黃長羽絨：最冷、吹北風嗰日先用，保暖力最強。</p></div>
+        <div class="layer"><b>萬能</b><p>白色短毛冷拉鏈開衫：所有套裝暖天時都可以直接披。</p></div>
+        <div class="layer"><b>凍日</b><p>Zara 短毛毛皮褸：配裙裝日最靚，深色造型保暖擔當。</p></div>
       </div>
       <div class="fit-card reveal">
-        <h4>女士造型 <span class="who">WOMEN</span></h4>
-        <div class="layer"><b>OUTER</b><p>燕麥色／深啡色羊毛長大褸，或者短版羽絨配長裙，兩套都影得芒草海好靚。</p></div>
-        <div class="layer"><b>INNER</b><p>修身高領發熱衣 + 直筒長褲；室內脫褸後依然係完整造型。</p></div>
-        <div class="layer"><b>ACC</b><p>蓬鬆毛線帽（Beanie）或格紋大圍巾 —— 晨星岳防吹亂頭髮，打卡一流。</p></div>
-        <div class="layer"><b>SHOES</b><p>厚底皮質 Chelsea boots 或復古球鞋，兼顧保暖同上鏡。</p></div>
+        <h4>男裝 <span class="who">MEN · DAILY</span></h4>
+        <div class="layer"><b>BASE</b><p>發熱內衣 x3 + 素色上衣／針織輪換，日日差唔多，唔使逐日計。</p></div>
+        <div class="layer"><b>OUTER</b><p>防風連帽風褸（炭灰／深軍綠）＋ 米黃羽絨備用。</p></div>
+        <div class="layer"><b>BOTTOM</b><p>寬版打褶西褲或工裝長褲 x2-3，大地色系。</p></div>
+        <div class="layer"><b>SHOES</b><p>Salomon / New Balance 1906R —— 行山行街防跣舒適。</p></div>
       </div>
     </div>
 
@@ -848,7 +868,7 @@ footer::before{
     <div class="sec-head reveal">
       <div class="sec-kicker"><span class="sec-num">05</span><span class="sec-en">EAT · SHOP · HOURS</span></div>
       <h2 class="sec-title"><span class="zh">食買清單與開放時間</span></h2>
-      <p class="sec-sub">唔行傳統遊客路線。以下係 2026 本地人氣之選，連埋每個景點嘅實用開放時段，方便你反推每日出發時間。</p>
+      <p class="sec-sub">大田探店線不走回頭路、首爾唔行傳統遊客路線；連埋每個景點嘅實用開放時段，方便你反推出發時間。</p>
       <div class="sec-rule"></div>
     </div>
 
@@ -858,6 +878,7 @@ footer::before{
           <tr><th>景點 / 場地</th><th>開放時間</th><th>實用備註</th></tr>
         </thead>
         <tbody>
+          <tr><td class="place">Plaza Premium Lounge（HKIA T1）</td><td class="hours">06:00 – 00:59</td><td class="note">6 樓 35 號閘口側・安檢後・<b>限用 2 小時</b>；11/6 深夜沖涼小休，23:00 前入場。</td></tr>
           <tr><td class="place">城山日出峰</td><td class="hours">07:00 – 19:00</td><td class="note">18:00 停止售票。09:50 抵達光線最溫柔。</td></tr>
           <tr><td class="place">牛島渡輪（城山港）</td><td class="hours">尾班 16:30 – 17:00</td><td class="note">11 月航班較疏，<b>15:15 返程極之安全</b>。</td></tr>
           <tr><td class="place">休愛里自然生活公園</td><td class="hours">09:00 – 17:30</td><td class="note">16:30 最後入場，山茶花與粉紅亂子草正當季。</td></tr>
@@ -865,13 +886,10 @@ footer::before{
           <tr><td class="place">Ecoland 生態樂園</td><td class="hours">08:30 – 17:30</td><td class="note">復古蒸汽小火車，早到人少好影。</td></tr>
           <tr><td class="place">石頭文化公園</td><td class="hours">09:00 – 18:00</td><td class="note">17:00 最後入場，「天空之池」倒影要天晴先靚。</td></tr>
           <tr><td class="place">山君不離</td><td class="hours">09:00 – 17:40</td><td class="note">17:00 停止售票，<b>15:30 抵達完美避開限制</b>睇落日。</td></tr>
-          <tr><td class="place">聖心堂 성심당 本店（大田）</td><td class="hours">08:00 – 22:00</td><td class="note">全年無休；炸菠蘿包（튀김소보로）出爐時間不定，晏晝人較少。</td></tr>
-          <tr><td class="place">大田中央市場</td><td class="hours">約 09:00 – 18:00</td><td class="note">同聖心堂本店同一區（은행동），刀削麵、豬腳食晏晝最穩陣。</td></tr>
-          <tr><td class="place">EXPO 科學公園（大田）</td><td class="hours">09:30 – 17:40</td><td class="note"><b>逢星期一休園</b> —— 11/10 係星期二，正常開放。17:40 收館要預鬆啲。</td></tr>
-          <tr><td class="place">慶周山紅土步道 계족산 황톳길</td><td class="hours">全日開放</td><td class="note">全國最長 4.5km 赤腳紅泥路 + 山頂展望台，建議 17:30 前完成。</td></tr>
-          <tr><td class="place">裕泉溫泉足湯（유성온천）</td><td class="hours">07:00 – 22:00</td><td class="note">100% 天然溫泉 39-42°C，<b>完全免費</b>，全年無休。</td></tr>
+          <tr><td class="place">光明洞窟（Klook Day Tour）</td><td class="hours">09:00 – 18:00</td><td class="note">17:00 最後入場・逢星期一休；11/11 星期二 15:10-16:40 到訪啱啱好。<b>洞內全年約 12°C 帶薄外套</b>。</td></tr>
+          <tr><td class="place">和談林 / 昆池巖雪橇（Day Tour）</td><td class="hours">團務時間為準</td><td class="note">冬季版會轉昆池巖雪橇體驗（2 小時）；雪橇場約 11 月下旬先開季，<b>出發前同 Klook 確認當日版本</b>。</td></tr>
+          <tr><td class="place">東大門 DDP · 批發商場</td><td class="hours">深夜場 21:00 – 凌晨</td><td class="note">Doota／Hello apM 等開到凌晨 2-5 點，<b>11/11、11/12 兩晚都開</b>，11 點依然好墟冚。</td></tr>
           <tr><td class="place">西歸浦天文科學館</td><td class="hours">19:00 – 22:00</td><td class="note">天象儀需留意場次，建議到埗先買飛。</td></tr>
-          <tr><td class="place">東大門 DDP · 批發商場</td><td class="hours">深夜場 21:00 – 凌晨</td><td class="note">Doota／Hello apM 等開到凌晨 2-5 點，<b>11 點依然好墟冚</b>，唔使趕。</td></tr>
         </tbody>
       </table>
     </div>
@@ -898,22 +916,22 @@ footer::before{
       </div>
 
       <div class="food-col reveal">
-        <h4><small>DAEJEON</small>大田半日快閃</h4>
-        <p class="sub">13:15 落車，一個下午食晒大田精華。</p>
+        <h4><small>DAEJEON</small>大田探店線（不走回頭路）</h4>
+        <p class="sub">13:00 同 Amber 會合，市中心精華區一路食落去。</p>
         <div class="food-item">
-          <b>聖心堂 성심당 本店</b>
-          <span>全韓國公認第一嘅炸菠蘿包（튀김소보로）與明太子法棍（명란바게트），行 15 分鐘或的士 5 分鐘由大田站到。</span>
-          <span class="where">DAY 4 · 13:15-14:00</span>
+          <b>선화동소머리해장국（宣化洞）</b>
+          <span>濃郁牛頭肉醒酒湯 + 辣蘿蔔泡菜，暖胃第一站。</span>
+          <span class="where">DAY 4 · 13:15-14:30</span>
         </div>
         <div class="food-item">
-          <b>大田中央市場</b>
-          <span>食完麵包行過隔離食正餐：大田式刀削麵（칼국수）同豬腳，地道又抵食。</span>
-          <span class="where">DAY 4 · 14:00-14:30</span>
+          <b>大興洞甜點巡禮</b>
+          <span>영춘모찌 Q彈鮮果大福 → 몽심 대흥3호점 法式烘焙甜點 → 디블루메 質感咖啡廳歇腳。</span>
+          <span class="where">DAY 4 · 14:30-16:00</span>
         </div>
         <div class="food-item">
-          <b>裕泉溫泉足湯</b>
-          <span>行咗成日，17:35 嚟浸免費天然溫泉足湯回一回氣，先上 KTX。</span>
-          <span class="where">DAY 4 · 17:35-18:05</span>
+          <b>屯山洞麵包線 + 素濟洞收尾</b>
+          <span>Hare Hare 招牌米製糕點、시옷기역빠을 鹽麵包；Champspace Coffee Roasters 專業手沖，行幾分鐘返大田站搭車。</span>
+          <span class="where">DAY 4 · 16:20-19:30</span>
         </div>
       </div>
 
@@ -923,17 +941,17 @@ footer::before{
         <div class="food-item">
           <b>聖水洞 · 漢南洞</b>
           <span>EMPTY、Point of View、Tamburins、Nonfiction、Mardi Mercredi、EENK。</span>
-          <span class="where">DAY 8 · 全日</span>
+          <span class="where">DAY 8 · 全日（Amber 同行）</span>
         </div>
         <div class="food-item">
           <b>東大門深夜掃貨</b>
-          <span>21:00 先出動：DDP 薔薇園夜景、Doota、Hello apM、apM PLACE，行到凌晨都仲有嘢行。</span>
-          <span class="where">DAY 5 · 21:00-23:30+</span>
+          <span>21:00 先出動：DDP 薔薇園夜景、Doota、Hello apM、apM PLACE，批發 11/11、11/12 兩晚都開。</span>
+          <span class="where">DAY 5 · 21:00-23:30+（Amber follow）</span>
         </div>
         <div class="food-item">
-          <b>春川辣炒雞排 · 明洞弘大夜行街</b>
-          <span>Day 6 春川食 통나무집닭갈비；夜晚返首爾行街，弘大烤肉、Olive Young 補貨最啱。</span>
-          <span class="where">DAY 6 · 晚餐 + 夜行街</span>
+          <b>春川辣炒雞排 · 清進洞一隻雞</b>
+          <span>Day 6 春川食 통나무집닭갈비；東大門行完宵夜一隻雞或者雪濃湯收尾。</span>
+          <span class="where">DAY 6 · 晚餐 + 宵夜</span>
         </div>
       </div>
     </div>
@@ -945,12 +963,44 @@ footer::before{
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-kicker"><span class="sec-num">06</span><span class="sec-en">FIELD NOTES</span></div>
-      <h2 class="sec-title"><span class="zh">行前錦囊</span></h2>
-      <p class="sec-sub">應急、支付、交通、行前一週任務 —— 出發前碌一次就安心。</p>
+      <h2 class="sec-title"><span class="zh">航班・行前錦囊</span></h2>
+      <p class="sec-sub">三程機票、行李限重、Lounge、應急號碼、行前一週任務 —— 出發前碌一次就安心。</p>
       <div class="sec-rule"></div>
     </div>
 
     <div class="tip-grid">
+      <div class="tip-card reveal">
+        <h4><small>FLIGHTS</small>航班速覽（全部無餐膳）</h4>
+        <div class="kv"><b>LJ954</b><span>11/7 02:10 HKG T1 → 06:10 CJU・737-900</span></div>
+        <div class="kv"><b>LJ7484</b><span>11/10 10:05 CJU → 11:15 CJJ・737-800</span></div>
+        <div class="kv"><b>ZE861</b><span>11/15 19:15 ICN T1 → 22:35 HKG・737-800</span></div>
+        <div class="kv"><b>PNR</b><span>EVCRU2 · UBR6VA（官網辦理登機）</span></div>
+        <p style="font-size:12.5px;color:var(--ink-2);line-height:1.95;margin-top:12px">
+          三程都冇餐膳，自備糧食；LCC 冇娛樂系統，預先下載片單。紅眼機帶頸枕眼罩。
+        </p>
+      </div>
+
+      <div class="tip-card reveal">
+        <h4><small>BAGGAGE</small>行李限重</h4>
+        <div class="kv"><b>託運</b><span>15kg／人・每件長闊高總和 ≤203cm</span></div>
+        <div class="kv"><b>手提</b><span>10kg／人・長闊高總和 ≤115cm</span></div>
+        <div class="kv"><b>隨身</b><span>1 件・≤40×30×15cm 放座位下</span></div>
+        <div class="kv"><b>ICN→HKG</b><span>隨身＋手提合共限 10kg／人</span></div>
+        <p style="font-size:12.5px;color:var(--ink-2);line-height:1.95;margin-top:12px">
+          Day 8 掃貨＋手信好易爆 —— 行李磅＋壓縮袋必備，超重建議預先官網加購，平過機場。
+        </p>
+      </div>
+
+      <div class="tip-card reveal">
+        <h4><small>LOUNGE</small>Plaza Premium Lounge</h4>
+        <div class="kv"><b>位置</b><span>HKIA T1 出發層 6 樓・35 號閘口附近</span></div>
+        <div class="kv"><b>時間</b><span>06:00 – 00:59・限用 2 小時</span></div>
+        <div class="kv"><b>區域</b><span>安檢後（T2 出發請先過安檢再搭 APM）</span></div>
+        <p style="font-size:12.5px;color:var(--ink-2);line-height:1.95;margin-top:12px">
+          出發夜流程：20:30 打邊爐 → 22:00 辦登機過安檢 → 22:20-00:20 Lounge 沖涼＋小休（2 小時時限、00:59 關門）→ 00:50 行去閘口 → 02:10 起飛。
+        </p>
+      </div>
+
       <div class="tip-card reveal">
         <h4><small>EMERGENCY</small>應急號碼</h4>
         <div class="sos">
@@ -959,8 +1009,7 @@ footer::before{
           <div><b>1330</b><span>TRAVEL HOTLINE</span></div>
         </div>
         <p style="font-size:12.5px;color:var(--ink-2);line-height:1.95;margin-top:12px">
-          1330 係 24 小時旅遊熱線，支援多語言（包括中文），交通、投訴、遺失都可以打。
-          租車出任何事故，先影相再打俾租車公司，唔好私了。
+          1330 係 24 小時旅遊熱線，支援中文。租車出任何事故，先影相再打俾樂天租車，唔好私了。
         </p>
       </div>
 
@@ -984,8 +1033,8 @@ footer::before{
         <div class="kv"><b>行車方向</b><span>右側行車，方向盤左舵</span></div>
         <div class="kv"><b>紅燈</b><span>紅燈禁止右轉（除非有指示牌）</span></div>
         <div class="kv"><b>斑馬線</b><span>必須禮讓行人，否則重罰</span></div>
-        <div class="kv"><b>兒童</b><span>6 歲以下必須使用兒童安全座椅</span></div>
         <div class="kv"><b>酒精</b><span>零容忍，揸車完全唔飲酒</span></div>
+        <div class="kv"><b>導航</b><span>Naver Map 用電話號碼／韓文名搜尋</span></div>
         <div class="kv"><b>高速</b><span>限速 80-110km/h，切線打燈</span></div>
       </div>
     </div>
@@ -1003,7 +1052,7 @@ footer::before{
       </div>
       <div class="foot-step reveal">
         <b>STEP 02</b>
-        <p>改 script 入面嘅 <code style="font-family:var(--mono);color:var(--gold)">tripDays</code>、<code style="font-family:var(--mono);color:var(--gold)">packing</code>、<code style="font-family:var(--mono);color:var(--gold)">preTasks</code> 數據 —— 改日期、地點、時間就得。</p>
+        <p>改 script 入面嘅 <code style="font-family:var(--mono);color:var(--gold)">tripDays</code>、<code style="font-family:var(--mono);color:var(--gold)">outfits</code>、<code style="font-family:var(--mono);color:var(--gold)">packing</code>、<code style="font-family:var(--mono);color:var(--gold)">preTasks</code> 數據。</p>
       </div>
       <div class="foot-step reveal">
         <b>STEP 03</b>
@@ -1024,88 +1073,108 @@ footer::before{
    ========================================================= */
 const tripDays = [
   {
-    num:'01', label:'Day 1', date:'11.07', short:'濟州東南', zone:'濟州 · 東南環線',
-    highlight:'鎖定城山日出峰 45 分鐘快攻，牛島深度停留 4 小時；17:00 準時抵南原큰엉，捕捉樹洞落日斜陽。',
+    num:'00', label:'Day 0', date:'11.06', short:'出發夜', zone:'香港 · 紅眼機前哨',
+    highlight:'20:30 機場打邊爐 → Plaza Premium Lounge 沖涼瞓個幾鐘 → 02:10 LJ954 起飛。沖涼袋放手提，唔好寄艙。',
     events:[
-      {time:'06:10', end:'', title:'抵達濟州國際機場', desc:'入境審查、提行李、梳洗換衫，精神飽滿開始旅程。', tag:'航班'},
-      {time:'08:00', end:'08:35', title:'租車中心取車', desc:'驗車影相留底、設定 Naver Map、連接藍牙同手機支架。', tag:'自駕'},
-      {time:'09:50', end:'10:35', title:'城山日出峰', desc:'快速登頂或行海景步道，預留 45 分鐘，夠影火山口全景。', tag:'景點'},
-      {time:'10:50', end:'15:35', title:'牛島深度遊', desc:'乘船出海、租電單車環島、午餐、花生雪糕放鬆 4 小時。', tag:'景點'},
-      {time:'16:00', end:'16:40', title:'表善海邊 NO VACATION', desc:'海景咖啡店小休 40 分鐘，甜品補充體力。', tag:'美食'},
-      {time:'17:00', end:'17:40', title:'南原큰엉海岸', desc:'夕陽韓半島樹洞與懸崖海景 —— 全日最重要嘅 40 分鐘。', tag:'景點'},
-      {time:'18:30', end:'19:30', title:'西歸浦每日偶來市場', desc:'黑豬肉肉餅、紫菜包飯、柑橘汁，地道街頭小食晚餐。', tag:'美食'},
-      {time:'19:50', end:'22:00', title:'西歸浦天文科學館', desc:'天象儀解說及天文望遠鏡觀星，深秋星空特別清。', tag:'景點'}
+      {time:'20:30', end:'21:45', title:'機場打邊爐', desc:'SkyCity 或客運大樓食肆，上機前最後一餐熱嘢。', tag:'美食'},
+      {time:'22:00', end:'22:15', title:'LJ954 辦登機 · 過安檢', desc:'T1 辦理寄艙（15kg），手提留沖涼袋、頸枕、自備糧。', tag:'航班'},
+      {time:'22:20', end:'00:20', title:'Plaza Premium Lounge 沖涼小休', desc:'T1 出發層 6 樓 35 號閘口側・安檢後。限用 2 小時、00:59 關門，沖完涼瞓個幾鐘。', tag:'酒店'},
+      {time:'00:50', end:'', title:'行去閘口', desc:'確認閘口顯示，慢慢行過去準備登機。', tag:'交通'},
+      {time:'02:10', end:'', title:'LJ954 起飛', desc:'737-900 無餐膳，機上瞓覺；06:10 落濟州。', tag:'航班'}
     ]
   },
   {
-    num:'02', label:'Day 2', date:'11.08', short:'濟州西南', zone:'濟州 · 西南環線',
-    highlight:'山茶花粉紅草 ➔ 搭的士避開 1100 山路 ➔ 晨星岳芒草落日 ➔ 17:55 壓線老衡超市 ➔ 東門夜市。',
+    num:'01', label:'Day 1', date:'11.07', short:'濟州東南', zone:'濟州 · 東南環線',
+    highlight:'鎖定城山日出峰 45 分鐘快攻，牛島深度 4 小時；17:00 準時抵南原큰엉樹洞落日，之後入金菊酒店。',
     events:[
-      {time:'07:45', end:'08:45', title:'每日偶來市場清晨早餐', desc:'黑豬肉肉餅、紫菜包飯、即榨柑橘汁，為全日補足電量。', tag:'美食'},
-      {time:'09:10', end:'10:45', title:'休愛里自然生活公園', desc:'深秋山茶花與粉紅亂子草，摘柑橘體驗，人少光線好。', tag:'景點'},
-      {time:'11:25', end:'13:05', title:'ICC 轉乘的士上 1100 高地', desc:'漫步濕地木棧道睇紅葉芒草，GS25 飲熱飲，約的士回程取車。', tag:'景點'},
+      {time:'06:10', end:'', title:'抵達濟州國際機場', desc:'LJ954 紅眼機落地，入境、提行李、梳洗換衫。', tag:'航班'},
+      {time:'08:00', end:'08:35', title:'樂天租車取車 · KIA MORNING', desc:'驗車影相留底、設定 Naver Map、手機支架裝好。', tag:'自駕'},
+      {time:'09:50', end:'10:35', title:'城山日出峰', desc:'快速登頂或行海景步道，預留 45 分鐘影火山口全景。', tag:'景點'},
+      {time:'10:50', end:'15:35', title:'牛島深度遊', desc:'乘船出海、租電單車環島、午餐、花生雪糕放鬆 4 小時。', tag:'景點'},
+      {time:'16:00', end:'16:40', title:'表善海邊 NO VACATION', desc:'海景咖啡店小休 40 分鐘，甜品補充體力。', tag:'美食'},
+      {time:'17:00', end:'17:40', title:'南原큰엉海岸', desc:'夕陽韓半島樹洞與懸崖海景 —— 全日最重要嘅 40 分鐘。', tag:'景點'},
+      {time:'18:15', end:'18:30', title:'金菊西歸浦海洋酒店 Check-in', desc:'15:00 後入住，放低行李，行去偶來市場 7-10 分鐘。', tag:'酒店'},
+      {time:'18:45', end:'19:45', title:'每日偶來市場晚餐', desc:'黑豬肉肉餅、紫菜包飯、柑橘汁，地道街頭小食。', tag:'美食'},
+      {time:'20:00', end:'22:00', title:'西歸浦天文科學館', desc:'天象儀解說及天文望遠鏡觀星，深秋星空特別清。', tag:'景點'}
+    ]
+  },
+  {
+    num:'02', label:'Day 2', date:'11.08', short:'濟州西南', zone:'濟州 · 西南環線 · 換酒店',
+    highlight:'早餐後 11:00 前退房、行李放車尾；山茶花 ➔ 的士上 1100 高地 ➔ 晨星岳落日 ➔ 17:55 壓線老衡 ➔ 夜市後入住 Cozy Stay。',
+    events:[
+      {time:'07:45', end:'08:30', title:'每日偶來市場清晨早餐', desc:'黑豬肉肉餅、紫菜包飯、即榨柑橘汁，為全日補足電量。', tag:'美食'},
+      {time:'08:30', end:'08:50', title:'金菊 Checkout · 行李放車尾', desc:'11:00 前退房；早餐後即搞掂，行李入 KIA MORNING 尾箱，零折騰。', tag:'酒店'},
+      {time:'09:20', end:'10:50', title:'休愛里自然生活公園', desc:'深秋山茶花與粉紅亂子草，摘柑橘體驗，人少光線好。', tag:'景點'},
+      {time:'11:30', end:'13:05', title:'ICC 轉乘的士上 1100 高地', desc:'漫步濕地木棧道睇紅葉芒草，GS25 飲熱飲，約的士回程取車。', tag:'景點'},
       {time:'13:20', end:'14:20', title:'Hello Kitty Island', desc:'打卡及紀念品選購，行程入面嘅輕鬆一小時。', tag:'景點'},
       {time:'15:30', end:'17:30', title:'晨星岳', desc:'漫步金黃芒草海，17:30 準時上車出發，唔好戀戰。', tag:'景點'},
       {time:'17:55', end:'18:55', title:'老衡超級市場', desc:'壓線入場，沉浸式黑白光影藝術空間。', tag:'景點'},
-      {time:'19:20', end:'', title:'東門在來市場夜市', desc:'黑豬肉串燒、鮑魚飯卷、柑橘麻糬，全日完美收尾。', tag:'美食'}
+      {time:'19:20', end:'21:15', title:'東門在來市場夜市', desc:'黑豬肉串燒、鮑魚飯卷、柑橘麻糬，全日完美收尾。', tag:'美食'},
+      {time:'21:30', end:'21:45', title:'入住 Cozy Stay Jeju', desc:'check-in 窗口 15:00-23:30，夜媽媽入啱啱好；順手確認獨立浴室。', tag:'酒店'}
     ]
   },
   {
     num:'03', label:'Day 3', date:'11.09', short:'濟州中北', zone:'濟州 · 中北部 · 夜晚還車',
-    highlight:'復古小火車 ➔ 天空之池 ➔ 15:30 山君不離芒草落日 ➔ 東門夜市晚餐 ➔ 20:30 還車收工，執行李聽朝飛。',
+    highlight:'復古小火車 ➔ 天空之池 ➔ 15:30 山君不離芒草落日 ➔ 夜市晚餐 ➔ 20:30 樂天機場店還車，聽朝飛清州。',
     events:[
       {time:'09:00', end:'10:30', title:'Ecoland 生態樂園', desc:'英式復古蒸汽火車、風車湖畔打卡，早到人少。', tag:'景點'},
       {time:'10:40', end:'11:50', title:'石頭文化公園', desc:'打卡標誌性「天空之池」倒影與火山岩造景。', tag:'景點'},
       {time:'12:00', end:'13:10', title:'橋來里午餐', desc:'교래향 黑豬肉定食，或者 30 年老字號土雞涮涮鍋。', tag:'美食'},
       {time:'13:25', end:'15:15', title:'松堂里濟州童話村', desc:'巨石瀑布，全濟州最大特色星巴克歇腳。', tag:'景點'},
       {time:'15:30', end:'17:35', title:'山君不離', desc:'平緩步道登上火山口，沉浸銀白芒草海睇落日。', tag:'景點'},
-      {time:'18:15', end:'20:15', title:'中央地下街 & 東門夜市', desc:'血拼美妝潮流服飾，東門夜市食埋晚餐，補齊伴手禮。', tag:'購物'},
-      {time:'20:30', end:'21:00', title:'還車（9號晚收車）', desc:'機場 24h 分店或市區分店交車：入滿油、影相留底、確認按金退還；之後搭的士 10 分鐘返酒店。', tag:'自駕'},
-      {time:'21:15', end:'22:30', title:'返酒店執行李', desc:'執定行李同手信，預辦登機搞定，聽朝輕裝出發機場。', tag:'酒店'}
+      {time:'18:15', end:'20:15', title:'中央地下街 & 東門夜市', desc:'血拼美妝潮流服飾，東門夜市食埋晚餐；行李放車尾箱。', tag:'購物'},
+      {time:'20:30', end:'21:00', title:'樂天濟州機場店還車', desc:'入滿油、執齊行李、影相留底、確認按金退還 —— 帶齊行李先交車。', tag:'自駕'},
+      {time:'21:15', end:'21:30', title:'的士返 Cozy Stay', desc:'機場店到酒店 10 分鐘車程。', tag:'交通'},
+      {time:'21:30', end:'22:30', title:'執行李 · 預辦登機', desc:'執定行李同手信，官網搞定 LJ7484 預辦登機，聽朝輕裝出發。', tag:'酒店'}
     ]
   },
   {
-    num:'04', label:'Day 4', date:'11.10', short:'大田半日', zone:'轉場日 · 濟州 ✈ 清州 ➔ 大田 ➔ 首爾',
-    highlight:'LJ748 10:05 起飛、11:15 落清州；BUS/TAXI 轉 KTX，13:00 前到大田。聖心堂 + 中央市場 + 半日景點，18:35 KTX 上首爾，23:00 前 check in。',
+    num:'04', label:'Day 4', date:'11.10', short:'大田探店', zone:'轉場日 · 濟州 ✈ 清州 ➔ 大田 ➔ 首爾',
+    highlight:'LJ7484 10:05 起飛、11:15 落清州轉 KTX，13:00 大田站同 Amber 會合；探店線不走回頭路，尾班車前 2-4 班一齊上首爾。',
     events:[
-      {time:'08:15', end:'08:40', title:'的士出發濟州機場', desc:'酒店出發 10 分鐘車程，9 號晚已還車，今日完全無需交收，輕裝出發。', tag:'交通'},
-      {time:'08:40', end:'09:45', title:'辦理登機 · LJ748', desc:'國內線寄艙兩日戰利品，安檢後食埋早餐先上機。', tag:'航班'},
-      {time:'10:05', end:'11:15', title:'LJ748 濟州 ➔ 清州', desc:'濟州航空，飛行約 1 小時 10 分鐘。', tag:'航班'},
-      {time:'11:35', end:'12:15', title:'清州機場 ➔ 五松站（오송역）', desc:'機場巴士或的士約 30-40 分鐘轉乘 KTX，清州機場細、人少好快搞掂。', tag:'交通'},
+      {time:'08:15', end:'08:40', title:'的士出發濟州機場', desc:'酒店出發 10 分鐘，昨晚已還車，今日輕裝出發。', tag:'交通'},
+      {time:'08:40', end:'09:45', title:'辦理登機 · LJ7484', desc:'寄艙 15kg 戰利品，安檢後食埋早餐先上機。', tag:'航班'},
+      {time:'10:05', end:'11:15', title:'LJ7484 濟州 ➔ 清州', desc:'737-800 無餐膳，飛行約 1 小時 10 分鐘。', tag:'航班'},
+      {time:'11:35', end:'12:15', title:'清州機場 ➔ 五松站（오송역）', desc:'機場巴士或的士約 30-40 分鐘轉乘 KTX。', tag:'交通'},
       {time:'12:30', end:'12:55', title:'KTX 五松 ➔ 大田', desc:'車程約 20 分鐘，13:00 前到達大田站。', tag:'交通'},
-      {time:'12:55', end:'13:10', title:'大田站寄存行李', desc:'Korail 儲物櫃寄存大喼，輕裝行一個下午。', tag:'交通'},
-      {time:'13:15', end:'14:30', title:'聖心堂 성심당 本店 + 中央市場', desc:'本店 08:00-22:00 全年無休：炸菠蘿包、明太子法棍；之後行過隔離中央市場食刀削麵、豬腳。', tag:'美食'},
-      {time:'15:00', end:'17:20', title:'二選一：EXPO 科學公園 / 慶周山紅土步道', desc:'EXPO（17:40 收館，11/10 星期二開放）：科學館 + EXPO 大橋打卡；紅土步道（계족산 황톳길）：全國最長 4.5km 赤腳紅泥路 + 山頂展望台。', tag:'景點'},
-      {time:'17:35', end:'18:05', title:'裕泉溫泉免費足湯（유성온천）', desc:'100% 天然溫泉 39-42°C，07:00-22:00 免費開放；揀咗紅土步道就跳過呢站直上車站。', tag:'景點'},
-      {time:'18:35', end:'19:35', title:'KTX 大田 ➔ 首爾', desc:'班次好密，買 18:30-19:30 之間嗰班最穩陣，車上小休。', tag:'交通'},
-      {time:'20:00', end:'20:30', title:'首爾酒店 Check in', desc:'比 23:00 deadline 仲有兩個幾鐘 buffer，就算 KTX 輕微延誤都唔怕。', tag:'酒店'},
-      {time:'21:00', end:'22:30', title:'明洞宵夜散策', desc:'放低行李即刻出返去，正式展開首爾篇。', tag:'美食'}
+      {time:'13:00', end:'13:15', title:'大田站寄存行李 · 同 Amber 會合', desc:'Korail 儲物櫃寄存大喼；Amber 自己買車飛 13:00 前後到。<b>DNA Kit 見面 Check 埋交佢寄</b>。', tag:'交通'},
+      {time:'13:15', end:'14:30', title:'선화동소머리해장국（宣化洞）', desc:'濃郁牛頭肉醒酒湯 + 辣蘿蔔泡菜，探店線第一站暖胃。', tag:'美食'},
+      {time:'14:30', end:'16:00', title:'大興洞甜點巡禮', desc:'영춘모찌 Q彈鮮果大福 → 몽심 대흥3호점 法式烘焙甜點 → 디블루메 質感咖啡廳歇腳。', tag:'美食'},
+      {time:'16:20', end:'18:00', title:'屯山洞麵包線（地鐵/巴士 15-20 分鐘）', desc:'Hare Hare 招牌米製糕點 → 시옷기역빠을 大田屯山店外酥內軟鹽麵包。', tag:'美食'},
+      {time:'18:30', end:'19:30', title:'素濟洞 Champspace Coffee Roasters', desc:'專業手沖收尾，飲完行幾分鐘就返大田站。', tag:'美食'},
+      {time:'19:30', end:'21:00', title:'大田站周邊晚餐 / 散策（彈性）', desc:'同 Amber 慢慢傾偈，時間彈性。', tag:'美食'},
+      {time:'21:15', end:'22:15', title:'KTX 大田 ➔ 首爾（尾班車前 2-4 班）', desc:'班次待買，3 張連 Amber；Korail App 一早開賣就揀 21:00-22:30 之間開出嗰幾班。', tag:'交通'},
+      {time:'22:45', end:'23:00', title:'NINE BRICK 弘大 Check-in', desc:'預先同酒店確認深夜 check-in 方式，放低行李即刻瞓。', tag:'酒店'}
     ]
   },
   {
-    num:'05', label:'Day 5', date:'11.11', short:'和談林 · 夜東大門', zone:'首爾 · 和談林 ➔ 東大門深夜場',
-    highlight:'和談林係全日賞楓團，18:10 先返抵明洞 —— 唔使趕。晚餐小休之後，21:00 先出動東大門：佢係不夜城，11 點都仲好墟冚。',
+    num:'05', label:'Day 5', date:'11.11', short:'和談林 · 夜東大門', zone:'Klook Day Tour ➔ 東大門深夜場',
+    highlight:'07:50 明洞 8 號出口上車；和談林 3 小時自由行 + 光明洞窟。18:10 返抵唔使趕，21:00 同 Amber 出動東大門。',
     events:[
-      {time:'08:30', end:'', title:'明洞 2 號出口集合', desc:'Klook 和談林 Day Tour，準時上車，車程約 2 小時。', tag:'交通'},
-      {time:'10:30', end:'15:30', title:'和談林 수목원', desc:'深秋楓葉森林步道，高低落差影相極靚，午餐於園內解決，慢慢行慢慢影。', tag:'景點'},
-      {time:'15:30', end:'18:10', title:'旅遊巴返程', desc:'18:10 返抵明洞，車上小休補眠，唔使趕車。', tag:'交通'},
-      {time:'18:30', end:'20:30', title:'晚餐 & 酒店小休', desc:'食完暖笠笠晚餐返酒店洗個熱水澡，暖返對腳，為深夜場充電。', tag:'酒店'},
-      {time:'21:00', end:'23:30+', title:'東大門 DDP · 深夜掃貨', desc:'不夜城時間正式開始：DDP 薔薇園夜景、Doota、Hello apM、apM PLACE；批發商場開到凌晨 2-5 點，11 點依然好熱鬧。', tag:'購物'},
+      {time:'07:50', end:'', title:'明洞 8 號出口集合', desc:'Klook Day Tour 準時上車；早餐買定上車食。', tag:'交通'},
+      {time:'08:40', end:'09:40', title:'乘搭汽車', desc:'車程 1 小時，車上補眠。', tag:'交通'},
+      {time:'09:40', end:'12:40', title:'和談林 3 小時自由行', desc:'深秋楓葉森林步道慢慢影，午餐於園內自理。<b>冬季版會轉昆池巖雪橇體驗（2 小時）—— 出發前同 Klook 確認當日版本</b>。', tag:'景點'},
+      {time:'12:40', end:'14:10', title:'午餐（自費）', desc:'團程午餐 1.5 小時，費用未包。', tag:'美食'},
+      {time:'14:10', end:'15:10', title:'乘搭汽車', desc:'車程 1 小時去光明。', tag:'交通'},
+      {time:'15:10', end:'16:40', title:'光明洞窟', desc:'舊礦坑改造嘅光影藝術空間；洞內全年約 12°C，帶薄外套。17:00 最後入場，時段啱啱好。', tag:'景點'},
+      {time:'16:40', end:'18:10', title:'車程返明洞', desc:'18:10 返抵，車上小休。', tag:'交通'},
+      {time:'18:30', end:'20:30', title:'晚餐 & 酒店小休', desc:'食完暖笠笠晚餐返酒店洗個熱水澡，為深夜場充電。', tag:'酒店'},
+      {time:'21:00', end:'23:30+', title:'東大門 DDP · 深夜掃貨（Amber follow）', desc:'DDP 薔薇園夜景、Doota、Hello apM、apM PLACE；批發商場 11/11、11/12 兩晚都開，行到凌晨都仲有嘢行。', tag:'購物'},
       {time:'23:30', end:'', title:'清進洞宵夜（自選）', desc:'元祖一隻雞或者雪濃湯收尾，搭的士返酒店就寢。', tag:'美食'}
     ]
   },
   {
     num:'06', label:'Day 6', date:'11.12', short:'春川慢活', zone:'春川 · 慢活半日 ➔ 首爾夜行街',
-    highlight:'前一晚東大門玩到夜媽媽，今朝睡到自然醒；10:30 先出發春川，唔去南怡島 —— Rail Bike + 小法國村慢嘆，食完辣炒雞排，夜晚返首爾行街。',
+    highlight:'前一晚東大門夜媽媽，今朝睡到自然醒；10:30 出發春川，唔去南怡島。夜晚返首爾 —— 東大門二戰定明洞弘大自選。',
     events:[
-      {time:'09:30', end:'10:15', title:'睡到自然醒 · 悠閒早餐', desc:'前一晚東大門深夜場 + 宵夜，今朝唔好逼自己早起，酒店附近慢慢食早餐。', tag:'酒店'},
+      {time:'09:30', end:'10:15', title:'睡到自然醒 · 悠閒早餐', desc:'唔好逼自己早起，酒店附近慢慢食早餐。', tag:'酒店'},
       {time:'10:30', end:'11:40', title:'ITX-青春號 ➔ 春川', desc:'龍山/清涼里出發，車程約 1 小時，車上補眠。', tag:'交通'},
       {time:'11:50', end:'12:40', title:'春川站附近午餐', desc:'春川炒飯或者午市辣炒雞排，先墊墊肚再踩車。', tag:'美食'},
       {time:'13:00', end:'15:00', title:'春川 Rail Bike', desc:'四人車穿過音樂山洞與北漢江河谷，時間充裕慢慢踩。', tag:'景點'},
       {time:'15:30', end:'17:00', title:'小法國村 Petite France', desc:'童話式建築群打卡，配熱飲取暖；唔去南怡島，時間足夠慢慢影。', tag:'景點'},
       {time:'17:30', end:'19:00', title:'통나무집닭갈비', desc:'春川在地無人不知嘅辣炒雞排正餐，配紫蘇葉同炒飯收尾。', tag:'美食'},
       {time:'19:30', end:'20:40', title:'ITX 返回首爾', desc:'車程約 1 小時，返到首爾精神奕奕。', tag:'交通'},
-      {time:'21:00', end:'23:30+', title:'首爾夜行街', desc:'明洞 / 弘大 / 延南洞自選：Olive Young 補貨、行返晏晝未行嘅街，行到幾點都得。', tag:'購物'},
+      {time:'21:00', end:'23:30+', title:'首爾夜行街', desc:'東大門批發二戰（11/12 都開）或明洞／弘大自選：Olive Young 補貨，行到幾點都得。', tag:'購物'},
       {time:'23:30', end:'', title:'宵夜（自選）', desc:'弘大烤肉或者酒店附近嘆返碗熱嘢，完美收尾。', tag:'美食'}
     ]
   },
@@ -1120,44 +1189,62 @@ const tripDays = [
     ]
   },
   {
-    num:'08', label:'Day 8', date:'11.14', short:'首爾潮流', zone:'首爾 · 潮流聖地',
-    highlight:'The Hyundai 聖誕村 ➔ 聖水洞設計小店 ➔ 漢南洞潮牌 —— 全日行街打卡最高密度。',
+    num:'08', label:'Day 8', date:'11.14', short:'首爾潮流', zone:'首爾 · 潮流聖地（Amber 全日 follow）',
+    highlight:'Amber 全日同行：The Hyundai 聖誕村 ➔ 聖水洞設計小店 ➔ 漢南洞潮牌 —— 行街打卡最高密度。',
     events:[
       {time:'11:00', end:'13:30', title:'The Hyundai Seoul', desc:'5 樓 Sound Forest 聖誕村（建議 CatchTable 預約），B2 潮流服飾。', tag:'購物'},
       {time:'14:30', end:'17:30', title:'聖水洞 Seongsu', desc:'EMPTY、Point of View、Tamburins、Nonfiction 逐間朝聖。', tag:'購物'},
       {time:'18:00', end:'20:30', title:'漢南洞 Hannam-dong', desc:'Mardi Mercredi、Marithé、EENK，晚餐於附近解決。', tag:'購物'},
-      {time:'21:00', end:'', title:'整理行李', desc:'預留時間執行李，最後一晚早啲休息。', tag:'酒店'}
+      {time:'21:00', end:'', title:'整理行李', desc:'預留時間執行李（留意託運 15kg 限重），最後一晚早啲休息。', tag:'酒店'}
     ]
   },
   {
-    num:'09', label:'Day 9', date:'11.15', short:'返港日', zone:'首爾 · 返港',
-    highlight:'朝早醫美保養，午後出發仁川機場退稅免稅，19:15 ZE861 返香港。',
+    num:'09', label:'Day 9', date:'11.15', short:'返港日', zone:'首爾 · 醫美 ➔ 返港',
+    highlight:'提早 checkout 行李寄存 NINE BRICK → Orta 醫美 Lunch 前搞掂 → 返弘大攞行李手信 → 15:00 出發仁川 → 19:15 ZE861。',
     events:[
-      {time:'10:00', end:'13:00', title:'首爾醫美保養', desc:'皮膚管理 / 水光療程，出發前預約好時段。', tag:'保養'},
-      {time:'13:30', end:'14:30', title:'午餐 & 最後手信', desc:'補買 Olive Young、零食手信，回憶打包回港。', tag:'購物'},
+      {time:'09:00', end:'09:30', title:'提早 Checkout · 行李寄存', desc:'退房約 12:00 但要早出門醫美；行李寄存 NINE BRICK，輕裝出發。', tag:'酒店'},
+      {time:'10:00', end:'12:00', title:'Orta 醫美（Amber 代訂）', desc:'同上次同一間；療程內容同地址由 Amber 提供。<b>預 Lunch 前搞掂</b>；如果係注射／激光類可考慮搬去 13/14 號俾兩日恢復。', tag:'保養'},
+      {time:'12:30', end:'13:30', title:'午餐', desc:'做完療程食返個暖笠笠午餐，補充體力。', tag:'美食'},
+      {time:'14:00', end:'14:30', title:'返 NINE BRICK 攞行李 · 最後手信', desc:'順路補買 Olive Young、零食手信。', tag:'購物'},
       {time:'15:00', end:'17:00', title:'出發仁川機場', desc:'機場鐵路或巴士，預留充足時間。', tag:'交通'},
       {time:'17:00', end:'18:45', title:'機場退稅 · 免稅店', desc:'退稅機辦理、最後巡一圈免稅店。', tag:'購物'},
-      {time:'19:15', end:'', title:'ZE861 返香港', desc:'九日深秋之旅完美落幕。', tag:'航班'}
+      {time:'19:15', end:'', title:'ZE861 返香港', desc:'22:35 落 HKG，九日深秋之旅完美落幕。', tag:'航班'}
     ]
   }
 ];
 
+const outfits = [
+  {date:'11.07', slot:'', pieces:'淺藍撞邊 U 領上衣 + 啡色羊絨糯米闊褲', style:'清涼柔和韓系，商場咖啡店', warm:'白色冷開衫', cold:'淺藍搖粒絨 / 米黃長羽絨', beanie:'米白'},
+  {date:'11.08', slot:'', pieces:'啡色綁帶假兩件針織上衣 + 深棕格仔百褶短裙', style:'復古美式學院，弘大文青街拍', warm:'白色冷開衫', cold:'Zara 短毛毛皮褸 / 米黃羽絨', beanie:'啡色'},
+  {date:'11.09', slot:'', pieces:'粉拼啡假兩件裙', style:'甜而不膩，遊園打卡景點', warm:'白色冷開衫', cold:'短毛毛皮褸', beanie:'啡色'},
+  {date:'11.10', slot:'大田', pieces:'紅白插肩長袖 T + 黑燈芯絨短褲', style:'活力休閒，市集行街', warm:'白色冷開衫', cold:'米黃長羽絨（備黑色 legging 入面保暖）', beanie:'黑色'},
+  {date:'11.11', slot:'早上', pieces:'米白鈕扣 U 領針織上衣 + 啡人字紋 A 字短裙', style:'溫柔簡約，咖啡店打卡', warm:'白色冷開衫', cold:'Zara 短毛毛皮褸', beanie:'米白'},
+  {date:'11.11', slot:'夜晚', pieces:'灰色 Polo 針織上衣 + 深灰闊腿長褲', style:'鬆弛舒服，東大門深夜場', warm:'風大先加淺藍搖粒絨', cold:'淺藍搖粒絨', beanie:'黑色'},
+  {date:'11.12', slot:'', pieces:'淺灰坑紋長款針織上衣 + 白色毛毛 A 字短裙', style:'軟糯韓系，日間逛小店', warm:'單穿', cold:'Zara 短毛毛皮褸', beanie:'米白'},
+  {date:'11.13', slot:'', pieces:'淺灰坑紋修身針織長裙', style:'文靜優雅，博物館下午茶', warm:'白色冷開衫', cold:'米黃長羽絨', beanie:'啡色'},
+  {date:'11.14', slot:'', pieces:'白方領長袖上衣 + 黑色魚尾短裙', style:'簡約韓系，市區逛街餐廳', warm:'白色冷開衫', cold:'Zara 短毛毛皮褸', beanie:'黑色'},
+  {date:'11.15', slot:'返港', pieces:'啡波點假兩件裙', style:'溫柔學院，機場打卡', warm:'白色冷開衫', cold:'米黃長羽絨', beanie:'啡色'}
+];
+
 const packing = [
-  {cat:'證件與金融', items:['國際駕照 IDP（取車必查）','香港駕照實體','護照 + 護照影印備份','WOWPASS / T-Money 卡','實體信用卡（租車按金）','小額現金韓元']},
-  {cat:'電器與導航', items:['韓國 Type C/F 雙圓孔轉插','10000mAh 磁吸行動電源','車用手機支架','Naver Map 離線區域下載','USB-C 充電線 x2','相機 / Insta360']},
-  {cat:'11月穿搭', items:['發熱內衣 x3','防風連帽風褸','羊毛長大褸 / 輕羽絨','毛線帽 + 大圍巾','暖包 x5','防滑短靴 / 越野跑鞋']},
-  {cat:'個人護理', items:['超滋潤潤唇膏','潤膚霜 / 護手霜','暈浪丸（牛島渡輪）','常備藥（腸胃/感冒/止痛）','保溫瓶','摺疊環保袋']}
+  {cat:'證件票務', items:['護照 x2 + 雲端副本','三程機票存檔（PNR：EVCRU2 / UBR6VA）','Klook Day Tour 憑證（11/11 明洞8號出口）','IDP 國際駕照 + 香港駕照 + 樂天租車單','WOWPASS / T-Money 卡','信用卡 x2 + 韓元現金','Lounge 憑證 + 醫美預約 + 酒店訂單','旅遊保險單']},
+  {cat:'航空裝備', items:['自備糧 x3 程（全部無餐膳）','頸枕 + 眼罩 + 耳塞 + 拖鞋（紅眼機）','離線片單 / 音樂','旅行裝沖涼袋（Lounge 沖涼用）','速乾毛巾 + 密封袋','行李磅 + 壓縮袋（15kg 限重）']},
+  {cat:'穿搭', items:['套裝 11 套（11 號早晚兩套）','外套 x4：白冷開衫/淺藍搖粒絨/Zara短毛毛皮褸/米黃長羽絨','冷帽 x3：米白 / 啡 / 黑','黑色 legging x1-2','連褲襪 x4 + 厚襪 x5-6','無痕內衣（配 U 領 / 方領）','鞋 x2：復古球鞋 + 厚底短靴','男：發熱內衣x3、上衣x4-5、長褲x2-3、風褸x1']},
+  {cat:'保暖戶外', items:['暖包 x10（晨星岳/山君不離/光明洞窟）','防水手套 + 換襪一對（雪橇備用）','髮夾 / 髮圈（濟州海風）','薄外套（光明洞窟洞內 12°C）','頸巾 x1 + 摺疊雨傘']},
+  {cat:'電器', items:['韓國轉插 x2','充電寶 x2（只可手提）','充電線 + 耳機','相機 + SD 卡']},
+  {cat:'護理藥物', items:['潤唇膏 / 潤膚霜 / 護手霜','面膜 x10 + 防曬','藥包（腸胃/感冒/止痛/暈浪丸）','保溫杯','醫美後修復面膜 + 帽']},
+  {cat:'雜項', items:['DNA Kit —— 10 號 Amber 交收寄出','摺疊環保袋 x2','行李鎖 + 零錢袋']}
 ];
 
 const preTasks = [
-  '買韓國 eSIM / 電話卡，確認數據用量',
-  '下載 Naver Map / Kakao Map 離線資料',
-  '網上預辦登機 LJ748（11/10 10:05 濟州→清州）',
-  '確認還車安排（11/9 晚 20:30 · 機場 24h 分店）',
-  'Klook 預訂和談林 Day Tour（Day 5 · 18:10 返抵明洞）',
-  'CatchTable 預約 The Hyundai 聖誕村',
-  '預約 Day 9 醫美時段',
-  '兌換適量韓元現金 + 開通海外簽賬',
+  '網上預辦登機 LJ954（11/6 02:10 紅眼機）',
+  'Korail 買 11/10 大田→首爾 KTX x3（尾班車前 2-4 班，連 Amber）',
+  '同 Amber 確認 Orta 醫美時間・地址・療程',
+  '同 Amber 確認 DNA Kit 交收（10 號大田見面）',
+  'Klook 確認 11/11 當日係和談林定昆池巖雪橇版',
+  '確認 Cozy Stay 獨立浴室 + NINE BRICK 深夜 check-in',
+  '下載 Naver Map / Kakao Map 離線資料 + 買 eSIM',
+  '兌換韓元現金 + 開通海外簽賬',
   '打印 IDP、護照、保險單副本',
   '手機下載本頁並加入主畫面'
 ];
@@ -1237,6 +1324,22 @@ timeline.addEventListener('click', e=>{
 });
 
 /* =========================================================
+   穿搭日曆渲染
+   ========================================================= */
+document.getElementById('outfitGrid').innerHTML = outfits.map(o=>`
+  <div class="outfit-card reveal">
+    <div class="outfit-head">
+      <span class="outfit-date">${o.date}</span>
+      ${o.slot?`<span class="outfit-slot">${o.slot}</span>`:''}
+    </div>
+    <h4>${o.pieces}</h4>
+    <p class="outfit-style">${o.style}</p>
+    <div class="outfit-row"><b>暖日</b><span>${o.warm}</span></div>
+    <div class="outfit-row"><b>凍日</b><span>${o.cold}</span></div>
+    <div class="outfit-row"><b>冷帽</b><span>${o.beanie}</span></div>
+  </div>`).join('');
+
+/* =========================================================
    打包清單 + 進度
    ========================================================= */
 const packGrid = document.getElementById('packGrid');
@@ -1291,9 +1394,9 @@ preList.addEventListener('click', e=>{
 });
 
 /* =========================================================
-   倒數計時
+   倒數計時（出發夜）
    ========================================================= */
-const target = new Date('2026-11-07T06:10:00+09:00').getTime();
+const target = new Date('2026-11-06T20:30:00+08:00').getTime();
 function tick(){
   const diff = target - Date.now();
   const pad = n => String(n).padStart(2,'0');
